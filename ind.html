@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src *; script-src *"
+    />
+    <link href="./css/vjs.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/index.css" />
+
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
+    <title>MMS Node</title>
+  </head>
+
+  <body onload="loadInit()" id="">
+    <!--     <h1>Hello World!</h1>
+    We are using Node.js <span id="node-version"></span>,
+    Chromium <span id="chrome-version"></span>,
+    and Electron <span id="electron-version"></span>. -->
+
+    <video
+      id="my-player"
+      class="video-js video-class"
+      preload="none"
+      poster="//vjs.zencdn.net/v/oceans.png"
+      data-setup="{}"
+      style="height: 100vh; width: 100vw; object-fit: fill"
+    >
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a
+        web browser that
+        <a href="https://videojs.com/html5-video-support/" target="_blank">
+          supports HTML5 video
+        </a>
+      </p>
+    </video>
+
+    <span id="warning" class="warning_ui">
+      <!-- HERE message received from MMS will de displayed -->
+    </span>
+
+    <!-- <div id="network"></div>-->
+    <span id="show_on_ui" class="show_on_ui">
+      <!-- HERE message received from MMS will de displayed -->
+    </span>
+    <div id="labels">
+      <img
+        id="no_audio"
+        alt=""
+        style="
+          position: fixed;
+          right: 10px;
+          bottom: 10px;
+          height: 60px;
+          width: 60px;
+        "
+      />
+      <!-- <img
+        src="./assets/imgs/has_audio.png"
+        id="has_audio"
+        alt=""
+        style="
+          position: fixed;
+          right: 10px;
+          bottom: 10px;
+          height: 60px;
+          width: 60px;
+        "
+      /> -->
+    </div>
+    <div>
+      <img
+        id="image"
+        style="height: 100vh; width: 100vw; opacity:0;position: absolute; top: 0; left: 0"
+        src="./assets/imgs/image.png"
+        onerror="hide_image()"
+        alt=""
+      />
+    </div>
+    <!-- You can also require other files to run in this process -->
+    <script type="text/javascript" src="./renderer.js"></script>
+  </body>
+</html>

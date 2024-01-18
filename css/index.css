@@ -1,0 +1,168 @@
+body {
+  margin: 0px;
+  overflow: hidden;
+  cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=),
+    none;
+  user-select: none;
+  background-color: black;
+  color: white;
+}
+#network {
+  position: fixed;
+  bottom: 0px;
+  background-color: green;
+  padding: 2px;
+}
+
+.video-js {
+  height: 100vh !important;
+  width: 100vw !important;
+  object-fit: fill !important;
+}
+
+#my-player {
+  height: 100vh;
+  width: 100vw;
+  object-fit: fill;
+}
+
+.video-class {
+  height: 100vh;
+  width: 100vw;
+  object-fit: fill;
+}
+.t_container {
+  position: absolute;
+  width: 692px;
+  height: 92px;
+
+  background: #c4c4c4;
+  border-radius: 7px;
+}
+.t_image {
+  position: absolute;
+  width: 81px;
+  height: 81px;
+  background: #ce7b7b;
+  top: 6px;
+  left: 6px;
+}
+.t_name {
+  position: absolute;
+  width: 54px;
+  height: 18px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+
+  color: #000000;
+}
+.t_title {
+  position: absolute;
+  width: 188px;
+  height: 16px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+
+  color: #000000;
+}
+.t_message {
+  position: absolute;
+  width: 190px;
+  height: 45px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+
+  color: #000000;
+}
+.show_on_ui {
+  position: fixed;
+  background-image: url("bgrImg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+.t_container {
+  width: 30%;
+  text-align: center;
+}
+
+.card-img-top {
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+}
+
+.card {
+  text-align: center;
+  border-radius: 5px;
+  width: 20%;
+  height: auto;
+  background-image: url("bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card-title {
+  color: #000000;
+}
+
+.card-body {
+  padding: 0 10px 0 10px;
+  text-align: center;
+}
+
+.card-text {
+  color: #000000;
+}
+
+.vjs-controls-showing {
+  display: none !important;
+}
+
+.warning_ui {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+.card_warning {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 30em;
+  height: 18em;
+  margin-top: -9em; /*set to a negative number 1/2 of your height*/
+  margin-left: -15em; /*set to a negative number 1/2 of your width*/
+  z-index: 1000;
+}
+
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

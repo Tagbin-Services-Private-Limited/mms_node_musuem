@@ -1,0 +1,87 @@
+{
+  "name": "mms-node",
+  "version": "9.1.8",
+  "description": "MMS Node",
+  "main": "main.js",
+  "scripts": {
+    "clean": "rmdir /s /q dist",
+    "start": "electron .",
+    "sass:build": "node-sass app/scss -o app/css",
+    "sass:watch": "node-sass -w app/render/scss -o app/render/css",
+    "postinstall": "electron-builder install-app-deps",
+    "pack": "electron-builder -w --publish never",
+    "publish": "electron-builder -l --publish always"
+  },
+  "repository": "",
+  "keywords": [
+    "Devgap",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": {
+    "name": "Trilok Panwar",
+    "email": "trilokpanwar16@gmail.com"
+  },
+  "license": "Copyright Devgap",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.57",
+    "@electron-forge/maker-deb": "^6.0.0-beta.57",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.57",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.57",
+    "@electron-forge/maker-zip": "^6.0.0-beta.57",
+    "electron-builder": "^22.13.1",
+    "electron": "^16.1.1",
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "@electron/remote": "^1.2.0",
+    "@felipebutcher/node-os-info": "^0.0.5",
+    "adm-zip": "^0.5.10",
+    "artnet": "^1.4.0",
+    "axios": "^0.21.1",
+    "crypto-browserify": "^3.12.0",
+    "electron-dl": "^3.5.1",
+    "electron-download-manager": "^2.1.2",
+    "electron-is-dev": "^2.0.0",
+    "electron-log": "^4.4.1",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-updater": "^4.6.1",
+    "extract-zip": "^2.0.1",
+    "getmac": "^5.17.0",
+    "hide-cursor": "^0.0.1",
+    "ip": "^1.1.5",
+    "js-file-download": "^0.4.12",
+    "loudness": "^0.4.1",
+    "nedb": "^1.8.0",
+    "network": "^0.5.0",
+    "newdb": "^1.6.0",
+    "node-forge": "^1.3.1",
+    "node-os-utils": "^1.3.5",
+    "shelljs": "^0.8.5",
+    "video.js": "^7.17.0",
+    "videojs-playlist": "^5.0.0",
+    "ws": "^8.15.1"
+  },
+  "build": {
+    "productName": "MMS-Node",
+    "artifactName": "${productName}-App.${ext}",
+    "publish": {
+      "provider": "s3",
+      "bucket": "electronserver",
+      "region": "ap-south-1",
+      "path": "/mms-node"
+    },
+    "asar": false,
+    "appId": "com.github.devgap.test",
+    "linux": {
+      "category": "test.app.development.type",
+      "target": "AppImage"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "icon.png"
+    }
+  }
+}

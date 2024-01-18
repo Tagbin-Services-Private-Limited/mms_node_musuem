@@ -1,0 +1,818 @@
+[
+  {
+    "question": "What does the NDPS Act stand for?",
+    "option_1": "Narcotics and Psychotropic Substances Act",
+    "option_2": "Narcotics and Psychotropic Substances Amendment Act",
+    "option_3": "National Drug Policy and Strategy Act",
+    "option_4": "National Drug Prevention and Control Act",
+    "correct_answer": 1
+  },
+  {
+    "question": "When was the NDPS Act passed in India?",
+    "option_1": "1980",
+    "option_2": "1985",
+    "option_3": "1990",
+    "option_4": "1995",
+    "correct_answer": 2
+  },
+  {
+    "question": "What is the main objective of the NDPS Act?",
+    "option_1": "To regulate the cultivation, manufacture, and distribution of narcotic drugs and psychotropic substances",
+    "option_2": "To promote the use of narcotic drugs and psychotropic substances for medical purposes",
+    "option_3": "To legalize the use of narcotic drugs and psychotropic substances",
+    "option_4": "To promote the use of narcotic drugs and psychotropic substances for recreational purposes",
+    "correct_answer": 1
+  },
+  {
+    "question": "Which of the following drugs is classified as a psychotropic substance under the NDPS Act?",
+    "option_1": "Cocaine",
+    "option_2": "Marijuana",
+    "option_3": "LSD",
+    "option_4": "All of the above",
+    "correct_answer": 4
+  },
+  {
+    "question": "What is the punishment for illegal possession of small quantities of narcotic drugs and psychotropic substances under the NDPS Act?",
+    "option_1": "Imprisonment up to 1 year and/or fine up to Rs. 10,000",
+    "option_2": "Imprisonment up to 6 months and/or fine up to Rs. 10,000",
+    "option_3": "Imprisonment up to 3 years and/or fine up to Rs. 50,000",
+    "option_4": "Imprisonment up to 10 years and/or fine up to Rs. 1 lakh",
+    "correct_answer": 2
+  },
+  {
+    "question": "What is the punishment for illegal cultivation, manufacture, sale, or transport of narcotic drugs and psychotropic substances under the NDPS Act?",
+    "option_1": "Imprisonment up to 1 year and/or fine up to Rs. 10,000",
+    "option_2": "Imprisonment up to 3 years and/or fine up to Rs. 50,000",
+    "option_3": "Imprisonment up to 10 years and/or fine up to Rs. 1 lakh",
+    "option_4": "Imprisonment up to 20 years and/or fine up to Rs. 2 lakhs",
+    "correct_answer": 3
+  },
+  {
+    "question": "Who has the power to authorize the search, seizure, and arrest under the NDPS Act?",
+    "option_1": "The Chief Justice of India",
+    "option_2": "The District Collector",
+    "option_3": "The Police Officer of the rank of Sub-Inspector or above",
+    "option_4": "The Village Panchayat",
+    "correct_answer": 3
+  },
+  {
+    "question": "Which court has jurisdiction over the offenses under the NDPS Act?",
+    "option_1": "District Court",
+    "option_2": "High Court",
+    "option_3": "Supreme Court",
+    "option_4": "All of the above",
+    "correct_answer": 1
+  },
+  {
+    "question": "What is the punishment for financing drug trafficking under the NDPS Act?",
+    "option_1": "Imprisonment up to 10 years and/or fine up to Rs. 1 lakh",
+    "option_2": "Imprisonment up to 20 years and/or fine up to Rs. 2 lakhs",
+    "option_3": "Imprisonment up to life and/or fine up to Rs. 5 lakhs",
+    "option_4": "None of the above",
+    "correct_answer": 2
+  },
+  {
+    "question": "What is the maximum punishment for contravening provisions of the PITNDPS Act?",
+    "option_1": "Life imprisonment and a fine of up to Rs. 2 lakhs",
+    "option_2": "Imprisonment for up to 20 years and a fine of up to Rs. 2 lakhs",
+    "option_3": "Imprisonment for up to 10 years and a fine of up to Rs. 1 lakh",
+    "option_4": "Imprisonment for up to 5 years and a fine of up to Rs. 50,000",
+    "correct_answer": 1
+  },
+  {
+    "question": "Which drugs are covered under the PITNDPS Act?",
+    "option_1": "Only narcotic drugs",
+    "option_2": "Only psychotropic substances",
+    "option_3": "Both narcotic drugs and psychotropic substances",
+    "option_4": "None of the above",
+    "correct_answer": 3
+  },
+  {
+    "question": "Under the PITNDPS Act, what is the punishment for producing, manufacturing or cultivating narcotic drugs or psychotropic substances?",
+    "option_1": "Imprisonment for up to 20 years and a fine of up to Rs. 2 lakhs",
+    "option_2": "Imprisonment for up to 10 years and a fine of up to Rs. 1 lakh",
+    "option_3": "Imprisonment for up to 5 years and a fine of up to Rs. 50,000",
+    "option_4": "Imprisonment for up to 7 years and a fine of up to Rs. 1 lakh",
+    "correct_answer": 1
+  },
+  {
+    "question": "Which of the following is not a provision of the PITNDPS Act?",
+    "option_1": "Confiscation of property derived from drug trafficking",
+    "option_2": "Establishment of Special Courts for speedy trial of drug-related offenses",
+    "option_3": "Authorization to intercept and monitor communications for drug-related offenses",
+    "option_4": "Legalization of certain drugs for recreational use",
+    "correct_answer": 4
+  },
+  {
+    "question": "What is the main objective of the Prevention of Illicit Traffic in Narcotic Drugs and Psychotropic Substances Act (PITNDPS)?",
+    "option_1": "To legalize the sale of drugs for medicinal purposes",
+    "option_2": "To regulate the sale of drugs in the country",
+    "option_3": "To prevent the illicit traffic of drugs and psychotropic substances",
+    "option_4": "To promote the use of drugs in the country",
+    "correct_answer": 3
+  },
+  {
+    "question": "What is the punishment for financing drug trafficking under the PITNDPS Act?",
+    "option_1": "Imprisonment for up to 10 years and a fine of up to Rs. 1 lakh",
+    "option_2": "Imprisonment for up to 20 years and a fine of up to Rs. 2 lakhs",
+    "option_3": "Imprisonment for up to 5 years and a fine of up to Rs. 50,000",
+    "option_4": "Imprisonment for up to 7 years and a fine of up to Rs. 1 lakh",
+    "correct_answer": 2
+  },
+  {
+    "question": "Which government agency is responsible for enforcing the PITNDPS Act?",
+    "option_1": "Central Bureau of Narcotics",
+    "option_2": "Directorate of Revenue Intelligence",
+    "option_3": "Narcotics Control Bureau",
+    "option_4": "All of the above",
+    "correct_answer": 4
+  },
+  {
+    "question": "What is the main objective of the UN Convention on Narcotic Drugs 1961?",
+    "option_1": "To control and regulate the cultivation, production, and distribution of narcotic drugs",
+    "option_2": "To legalize the use of narcotic drugs",
+    "option_3": "To encourage the production and trade of narcotic drugs",
+    "option_4": "None of the above",
+    "correct_answer": 1
+  },
+  {
+    "question": "Which of the following substances are included in the Schedule I of the UN Convention on Narcotic Drugs 1961?",
+    "option_1": "Marijuana",
+    "option_2": "Cocaine",
+    "option_3": "Heroin",
+    "option_4": "All of the above",
+    "correct_answer": 4
+  },
+  {
+    "question": "Which countries are required to establish a central authority for issuing licenses for the cultivation and manufacture of narcotic drugs under the UN Convention on Narcotic Drugs 1961?",
+    "option_1": "All parties to the convention",
+    "option_2": "Only developing countries",
+    "option_3": "Only developed countries",
+    "option_4": "None of the above",
+    "correct_answer": 1
+  },
+  {
+    "question": "What is the penalty for illegal cultivation of opium poppy or coca bush under the UN Convention on Narcotic Drugs 1961?",
+    "option_1": "Fine only",
+    "option_2": "Imprisonment up to 5 years",
+    "option_3": "Imprisonment up to 10 years",
+    "option_4": "Imprisonment up to 20 years",
+    "correct_answer": 3
+  },
+  {
+    "question": "Which international organization is responsible for the administration of the UN Convention on Narcotic Drugs 1961?",
+    "option_1": "World Health Organization (WHO)",
+    "option_2": "United Nations Office on Drugs and Crime (UNODC)",
+    "option_3": "International Narcotics Control Board (INCB)",
+    "option_4": "None of the above",
+    "correct_answer": 3
+  },
+  {
+    "question": "Which Article of the UN Convention on Narcotic Drugs 1961 deals with the international control of drugs?",
+    "option_1": "Article 2",
+    "option_2": "Article 3",
+    "option_3": "Article 4",
+    "option_4": "Article 5",
+    "correct_answer": 2
+  },
+  {
+    "question": "What is the main purpose of the International Narcotics Control Board (INCB) established under the UN Convention on Narcotic Drugs 1961?",
+    "option_1": "To provide financial support to developing countries",
+    "option_2": "To regulate the international trade of narcotic drugs",
+    "option_3": "To promote the use of narcotic drugs for medicinal purposes",
+    "option_4": "None of the above",
+    "correct_answer": 2
+  },
+  {
+    "question": "Which Schedule of the UN Convention on Narcotic Drugs 1961 includes substances that are considered to have a lower potential for abuse?",
+    "option_1": "Schedule I",
+    "option_2": "Schedule II",
+    "option_3": "Schedule III",
+    "option_4": "Schedule IV",
+    "correct_answer": 3
+  },
+  {
+    "question": "Which country was the first to sign the UN Convention on Psychotropic Substances?",
+    "option_1": "United States",
+    "option_2": "Canada",
+    "option_3": "France",
+    "option_4": "Switzerland",
+    "correct_answer": 2
+  },
+  {
+    "question": "How many countries have ratified the UN Convention on Psychotropic Substances as of 2021?",
+    "option_1": "63",
+    "option_2": "101",
+    "option_3": "183",
+    "option_4": "197",
+    "correct_answer": 3
+  },
+  {
+    "question": "Which schedule of the UN Convention on Psychotropic Substances includes drugs with a low potential for abuse and dependence?",
+    "option_1": "Schedule I",
+    "option_2": "Schedule II",
+    "option_3": "Schedule III",
+    "option_4": "Schedule IV",
+    "correct_answer": 3
+  },
+  {
+    "question": "Which schedule of the UN Convention on Psychotropic Substances includes drugs with a high potential for abuse and dependence?",
+    "option_1": "Schedule I",
+    "option_2": "Schedule II",
+    "option_3": "Schedule III",
+    "option_4": "Schedule IV",
+    "correct_answer": 2
+  },
+  {
+    "question": "Which of the following drugs is included in Schedule I of the UN Convention on Psychotropic Substances?",
+    "option_1": "Cannabis",
+    "option_2": "Cocaine",
+    "option_3": "Methadone",
+    "option_4": "Amphetamines",
+    "correct_answer": 1
+  },
+  {
+    "question": "Which of the following is a requirement for international trade of psychotropic substances under the UN Convention?",
+    "option_1": "Exporting country must issue an import certificate",
+    "option_2": "Importing country must issue an export certificate",
+    "option_3": "Both exporting and importing countries must issue an import/export certificate",
+    "option_4": "No certificates are required for international trade",
+    "correct_answer": 3
+  },
+  {
+    "question": "When was the UN Convention on Psychotropic Substances adopted?",
+    "option_1": "1961",
+    "option_2": "1971",
+    "option_3": "1988",
+    "option_4": "2000",
+    "correct_answer": 2
+  },
+  {
+    "question": "How many schedules does the UN Convention on Psychotropic Substances have?",
+    "option_1": "1",
+    "option_2": "2",
+    "option_3": "3",
+    "option_4": "4",
+    "correct_answer": 3
+  },
+  {
+    "question": "Which international organization adopted the UN Convention on Psychotropic Substances?",
+    "option_1": "World Health Organization",
+    "option_2": "International Narcotics Control Board",
+    "option_3": "United Nations Office on Drugs and Crime",
+    "option_4": "International Narcotics Control Caucus",
+    "correct_answer": 1
+  },
+  {
+    "question": "Which of the following is NOT covered under the UN Convention on Psychotropic Substances?",
+    "option_1": "Barbiturates",
+    "option_2": "Methaqualone",
+    "option_3": "Ketamine",
+    "option_4": "Cocaine",
+    "correct_answer": 4
+  },
+  {
+    "question": "When was the UN Convention against Illicit Traffic in Narcotic Drugs and Psychotropic Substances adopted?",
+    "option_1": "1961",
+    "option_2": "1971",
+    "option_3": "1988",
+    "option_4": "2000",
+    "correct_answer": 3
+  },
+  {
+    "question": "Which international organization adopted the UN Convention against Illicit Traffic in Narcotic Drugs and Psychotropic Substances?",
+    "option_1": "United Nations Office on Drugs and Crime",
+    "option_2": "World Health Organization",
+    "option_3": "International Narcotics Control Board",
+    "option_4": "International Criminal Police Organization",
+    "correct_answer": 1
+  },
+  {
+    "question": "How many articles are there in the UN Convention against Illicit Traffic in Narcotic Drugs and Psychotropic Substances?",
+    "option_1": "16",
+    "option_2": "20",
+    "option_3": "25",
+    "option_4": "30",
+    "correct_answer": 3
+  },
+  {
+    "question": "Which of the following is NOT covered under the UN Convention against Illicit Traffic in Narcotic Drugs and Psychotropic Substances?",
+    "option_1": "Production of drugs",
+    "option_2": "Sale of drugs",
+    "option_3": "Money laundering",
+    "option_4": "Human trafficking",
+    "correct_answer": 4
+  },
+  {
+    "question": "How many parties have ratified the UN Convention against Illicit Traffic in Narcotic Drugs and Psychotropic Substances as of 2021?",
+    "option_1": "100",
+    "option_2": "150",
+    "option_3": "190",
+    "option_4": "220",
+    "correct_answer": 3
+  },
+  {
+    "question": "Which article of the UN Convention against Illicit Traffic in Narcotic Drugs and Psychotropic Substances deals with money laundering?",
+    "option_1": "Article 2",
+    "option_2": "Article 5",
+    "option_3": "Article 8",
+    "option_4": "Article 12",
+    "correct_answer": 4
+  },
+  {
+    "question": "Which article of the UN Convention against Illicit Traffic in Narcotic Drugs and Psychotropic Substances deals with extradition of offenders?",
+    "option_1": "Article 7",
+    "option_2": "Article 9",
+    "option_3": "Article 11",
+    "option_4": "Article 13",
+    "correct_answer": 3
+  },
+  {
+    "question": "Which article of the UN Convention against Illicit Traffic in Narcotic Drugs and Psychotropic Substances deals with mutual legal assistance?",
+    "option_1": "Article 6",
+    "option_2": "Article 10",
+    "option_3": "Article 14",
+    "option_4": "Article 18",
+    "correct_answer": 2
+  },
+  {
+    "question": "Which of the following is a key feature of the UN Convention against Transnational Organized Crime?",
+    "option_1": "It requires all member states to criminalize certain activities related to organized crime",
+    "option_2": "It provides for the establishment of a global police force to combat organized crime",
+    "option_3": "It grants immunity to individuals who cooperate with law enforcement agencies in combating organized crime",
+    "option_4": "It requires member states to provide financial assistance to individuals affected by organized crime",
+    "correct_answer": 1
+  },
+  {
+    "question": "Which of the following is a provision of the UN Convention against Transnational Organized Crime?",
+    "option_1": "Member states are required to extradite individuals accused of organized crime offenses to other member states upon request",
+    "option_2": "Member states are prohibited from sharing information related to organized crime with other member states",
+    "option_3": "Member states are required to grant amnesty to individuals who have committed organized crime offenses in exchange for information",
+    "option_4": "Member states are required to provide safe haven to individuals accused of organized crime offenses in order to protect their human rights",
+    "correct_answer": 1
+  },
+  {
+    "question": "Which of the following is a mechanism provided by the UN Convention against Transnational Organized Crime for international cooperation?",
+    "option_1": "Establishment of a global court to prosecute organized crime offenses",
+    "option_2": "Formation of a global police force to combat organized crime",
+    "option_3": "Creation of a database to track organized crime activities",
+    "option_4": "Mutual legal assistance between member states",
+    "correct_answer": 4
+  },
+  {
+    "question": "When was the UN Convention against Transnational Organized Crime adopted?",
+    "option_1": "1990",
+    "option_2": "2000",
+    "option_3": "2010",
+    "option_4": "2020",
+    "correct_answer": 2
+  },
+  {
+    "question": "Which of the following is a key objective of the UN Convention against Transnational Organized Crime?",
+    "option_1": "To promote global trade",
+    "option_2": "To combat money laundering",
+    "option_3": "To encourage human trafficking",
+    "option_4": "To facilitate cybercrime",
+    "correct_answer": 2
+  },
+  {
+    "question": "Which of the following is NOT one of the three protocols that supplement the UN Convention against Transnational Organized Crime?",
+    "option_1": "Protocol to Prevent, Suppress and Punish Trafficking in Persons",
+    "option_2": "Protocol against the Smuggling of Migrants by Land, Sea and Air",
+    "option_3": "Protocol on the Illicit Manufacturing of and Trafficking in Firearms, Their Parts and Components and Ammunition",
+    "option_4": "Protocol on Cybercrime",
+    "correct_answer": 4
+  },
+  {
+    "question": "Which of the following countries was the first to sign and ratify the UN Convention against Transnational Organized Crime?",
+    "option_1": "United States",
+    "option_2": "Mexico",
+    "option_3": "Italy",
+    "option_4": "Russia",
+    "correct_answer": 3
+  },
+  {
+    "question": "Which UN agency is responsible for the implementation of the UN Convention against Transnational Organized Crime?",
+    "option_1": "United Nations Office on Drugs and Crime (UNODC)",
+    "option_2": "United Nations Children's Fund (UNICEF)",
+    "option_3": "United Nations Environment Programme (UNEP)",
+    "option_4": "United Nations Development Programme (UNDP)",
+    "correct_answer": 1
+  },
+  {
+    "question": "Which of the following crimes is NOT covered by the UN Convention against Transnational Organized Crime?",
+    "option_1": "Human trafficking",
+    "option_2": "Money laundering",
+    "option_3": "Terrorism",
+    "option_4": "Drug trafficking",
+    "correct_answer": 3
+  },
+  {
+    "question": "What does Article 47 of the Indian Constitution mandate regarding intoxicating drinks and drugs?",
+    "option_1": "Full prohibition",
+    "option_2": "Prohibition for medicinal purposes",
+    "option_3": "Regulation for medicinal purposes",
+    "option_4": "No restrictions",
+    "correct_answer": 2
+  },
+  {
+    "question": "India is a signatory to which of the following UN drug Conventions?",
+    "option_1": "Single Convention on Narcotic Drugs, 1961",
+    "option_2": "Convention on Psychotropic Substances, 1971",
+    "option_3": "UN Convention Against Illicit Traffic in Narcotic Drugs and Psychotropic Substances, 1988",
+    "option_4": "All of the above",
+    "correct_answer": 4
+  },
+  {
+    "question": "What is the primary objective of the Narcotic Drugs and Psychotropic Substances (NDPS) Act, 1985?",
+    "option_1": "Full prohibition of drugs",
+    "option_2": "Promote recreational drug use",
+    "option_3": "Promote medical and scientific use while preventing diversion and abuse",
+    "option_4": "Legalize all drugs",
+    "correct_answer": 3
+  },
+  {
+    "question": "Why is apprehending major drug traffickers crucial in drug control efforts in India?",
+    "option_1": "They promote drug use for medical purposes",
+    "option_2": "They are street peddlers",
+    "option_3": "They form a link between manufacturers and peddlers",
+    "option_4": "They are government officials",
+    "correct_answer": 3
+  },
+  {
+    "question": "Which ministry handles matters related to Drug Demand Reduction in India?",
+    "option_1": "Ministry of Finance",
+    "option_2": "Ministry of Social Justice & Empowerment",
+    "option_3": "Ministry of Home Affairs",
+    "option_4": "Ministry of Health and Family Welfare",
+    "correct_answer": 2
+  },
+  {
+    "question": "What is the organization responsible for coordinating actions under the NDPS Act in India?",
+    "option_1": "Central Bureau of Narcotics (CBN)",
+    "option_2": "Narcotics Control Bureau",
+    "option_3": "Directorate General of Revenue Intelligence",
+    "option_4": "Coast Guard",
+    "correct_answer": 2
+  },
+  {
+    "question": "Which government department handles the administration of the NDPS Act in the Central Government?",
+    "option_1": "Ministry of Social Justice & Empowerment (MSJE)",
+    "option_2": "Ministry of Finance, Department of Revenue",
+    "option_3": "Ministry of Home Affairs (MHA)",
+    "option_4": "Ministry of Health and Family Welfare",
+    "correct_answer": 2
+  },
+  {
+    "question": "Who enforces drug laws in the state governments of India?",
+    "option_1": "State Police",
+    "option_2": "Central Bureau of Narcotics",
+    "option_3": "Narcotics Control Bureau",
+    "option_4": "Coast Guard",
+    "correct_answer": 1
+  },
+  {
+    "question": "What is the main aim of the NDPS Act in India?",
+    "option_1": "Promote recreational drug use",
+    "option_2": "Prevent the diversion of drugs from licit sources",
+    "option_3": "Promote medical and scientific use while preventing diversion and abuse",
+    "option_4": "Encourage illicit drug trafficking",
+    "correct_answer": 3
+  },
+  {
+    "question": "What kind of impact does drug abuse have on individuals, according to the passage?",
+    "option_1": "Positive impact on academic and social life",
+    "option_2": "Deleterious impact on academic, social, psychological, physiological, and economic development",
+    "option_3": "No impact on individuals",
+    "option_4": "Enhances cognitive abilities",
+    "correct_answer": 2
+  },
+  {
+    "question": "According to the World Drug Report 2021, what is being increasingly diverted for recreational use in India?",
+    "option_1": "Prescription drugs",
+    "option_2": "Alcohol",
+    "option_3": "Tobacco",
+    "option_4": "Herbal medicines",
+    "correct_answer": 1
+  },
+  {
+    "question": "What are the three UN drug conventions mentioned in the passage?",
+    "option_1": "Convention on Trade in Drugs, 1950",
+    "option_2": "Single Convention on Narcotic Drugs, 1961",
+    "option_3": "Convention on Alcohol Control, 1975",
+    "option_4": "Convention on Tobacco Regulation, 1988",
+    "correct_answer": 2
+  },
+  {
+    "question": "Who is responsible for coordinating actions by various functionaries under the NDPS Act in India?",
+    "option_1": "Ministry of Finance",
+    "option_2": "Ministry of Home Affairs",
+    "option_3": "Ministry of Social Justice & Empowerment",
+    "option_4": "Ministry of Health",
+    "correct_answer": 2
+  },
+  {
+    "question": "Which government department or organization enforces drug laws in the Central Government of India?",
+    "option_1": "Ministry of Social Justice & Empowerment (MSJE)",
+    "option_2": "Narcotics Control Bureau",
+    "option_3": "Ministry of Home Affairs (MHA)",
+    "option_4": "Ministry of Health and Family Welfare",
+    "correct_answer": 2
+  },
+  {
+    "question": "What is the primary aim of the Narcotic Drugs and Psychotropic Substances (NDPS) Act, 1985?",
+    "option_1": "Promote drug trafficking",
+    "option_2": "Prohibit all drug use",
+    "option_3": "Promote medical and scientific use while preventing diversion and abuse",
+    "option_4": "Legalize all drugs",
+    "correct_answer": 3
+  },
+  {
+    "question": "Which organization is responsible for apprehending major drug traffickers in India?",
+    "option_1": "Central Bureau of Narcotics (CBN)",
+    "option_2": "State Police",
+    "option_3": "Narcotics Control Bureau",
+    "option_4": "Ministry of Home Affairs (MHA)",
+    "correct_answer": 3
+  },
+  {
+    "question": "What is the primary focus of drug control efforts in India, according to the passage?",
+    "option_1": "Promoting recreational drug use",
+    "option_2": "Preventing diversion of drugs from licit sources and prohibiting illicit traffic and abuse",
+    "option_3": "Legalizing all drugs",
+    "option_4": "Encouraging illicit drug trafficking",
+    "correct_answer": 2
+  },
+  {
+    "question": "What is the ministry responsible for Drug Demand Reduction in India?",
+    "option_1": "Ministry of Finance",
+    "option_2": "Ministry of Social Justice & Empowerment (MSJE)",
+    "option_3": "Ministry of Home Affairs (MHA)",
+    "option_4": "Ministry of Health and Family Welfare",
+    "correct_answer": 2
+  },
+  {
+    "question": "Which department or organization enforces drug laws in the state governments of India?",
+    "option_1": "Ministry of Social Justice & Empowerment",
+    "option_2": "Central Bureau of Narcotics",
+    "option_3": "State Police",
+    "option_4": "Directorate General of Revenue Intelligence",
+    "correct_answer": 3
+  },
+  {
+    "question": "According to the passage, what is the main problem related to drug control in India?",
+    "option_1": "Smuggling of drugs into and out of the country",
+    "option_2": "Legalization of all drugs",
+    "option_3": "High government taxes on drugs",
+    "option_4": "Lack of access to medicinal drugs",
+    "correct_answer": 1
+  },
+  {
+    "question": "What is the primary purpose of the Narcotic Drugs and Psychotropic Substances (NDPS) Act, 1985, with regard to the use of narcotics and psychotropic substances in India?",
+    "option_1": "To legalize all narcotics and psychotropic substances",
+    "option_2": "To promote recreational drug use",
+    "option_3": "To promote their use for medicinal and scientific purposes while preventing diversion and abuse",
+    "option_4": "To ban all forms of narcotics and psychotropic substances for any purpose",
+    "correct_answer": 3
+  },
+  {
+    "question": "What is the primary goal of a Drug Law Enforcement Officer (DLEO) when launching an operation?",
+    "option_1": "To increase drug trafficking profits",
+    "option_2": "To ensure a failed operation",
+    "option_3": "To recover and seize drugs and arrest offenders",
+    "option_4": "To become a drug trafficking operative (DTO)",
+    "correct_answer": 3
+  },
+  {
+    "question": "What are the risks associated with drug trafficking operations?",
+    "option_1": "High stakes and low profits",
+    "option_2": "Low risks and high profits",
+    "option_3": "Risk of exposure and loss of reputation",
+    "option_4": "Guaranteed success and high returns",
+    "correct_answer": 3
+  },
+  {
+    "question": "Why do drug trafficking operatives (DTOs) maintain secrecy in their dealings?",
+    "option_1": "To avoid paying taxes",
+    "option_2": "To protect their reputation",
+    "option_3": "To prevent the DLEO from discovering their activities",
+    "option_4": "To ensure transparency in their operations",
+    "correct_answer": 4
+  },
+  {
+    "question": "What risks do Drug Law Enforcement Officers (DLEOs) face during drug trafficking operations?",
+    "option_1": "Exposure of their identity",
+    "option_2": "Increased profits",
+    "option_3": "Improved reputation",
+    "option_4": "Legal protection",
+    "correct_answer": 1
+  },
+  {
+    "question": "Why is it essential for a DLEO to verify information before launching an operation involving a DTO?",
+    "option_1": "To maximize profits",
+    "option_2": "To minimize risks",
+    "option_3": "To protect the identity of the DTO",
+    "option_4": "To avoid coordination with other agencies",
+    "correct_answer": 4
+  },
+  {
+    "question": "What are the '4 Ws and 1 H' that a DLEO should verify before launching an operation?",
+    "option_1": "Who, what, when, where, why",
+    "option_2": "Why, when, where, which, how",
+    "option_3": "Who, where, why, what if, how",
+    "option_4": "Which, what, when, where, who",
+    "correct_answer": 3
+  },
+  {
+    "question": "What is the significance of having a 'plan B' before launching a drug trafficking operation?",
+    "option_1": "It ensures the success of the operation",
+    "option_2": "It allows for flexibility if the original plan fails",
+    "option_3": "It increases risks for the DTO",
+    "option_4": "It simplifies coordination with other agencies",
+    "correct_answer": 2
+  },
+  {
+    "question": "In what way can the DLEO demand cooperation from other agencies or departments during an operation?",
+    "option_1": "Through legal action",
+    "option_2": "Through intimidation",
+    "option_3": "Through financial incentives",
+    "option_4": "Through a written request",
+    "correct_answer": 4
+  },
+  {
+    "question": "What is the section of the NDPS Act that obligates officers from different departments to assist each other?",
+    "option_1": "Section 42",
+    "option_2": "Section 56",
+    "option_3": "Section 67",
+    "option_4": "Section 41 (2)",
+    "correct_answer": 2
+  },
+  {
+    "question": "What can happen to an officer from a sister agency who refuses to provide assistance during a drug trafficking operation?",
+    "option_1": "Promotion",
+    "option_2": "Trial as per the NDPS Act",
+    "option_3": "A monetary reward",
+    "option_4": "No consequences",
+    "correct_answer": 2
+  },
+  {
+    "question": "What logistical support must the DLEO provide to the search team before the operation starts?",
+    "option_1": "Vehicles filled with sufficient fuel",
+    "option_2": "Surveillance equipment",
+    "option_3": "Legal documents for the operation",
+    "option_4": "Promotional materials",
+    "correct_answer": 1
+  },
+  {
+    "question": "What are some examples of surveillance equipment mentioned in the passage?",
+    "option_1": "Medical supplies",
+    "option_2": "Sealing wax and envelopes",
+    "option_3": "Mobile phones",
+    "option_4": "Cooking utensils",
+    "correct_answer": 3
+  },
+  {
+    "question": "What should the DLEO do in case of non-cooperation from an officer of a sister agency during an operation?",
+    "option_1": "Offer a bribe",
+    "option_2": "Seek legal advice",
+    "option_3": "Try the officer as per the NDPS Act",
+    "option_4": "Ignore the situation",
+    "correct_answer": 3
+  },
+  {
+    "question": "Why is it advisable to be prepared in advance before launching a drug trafficking operation?",
+    "option_1": "It saves time and resources during the operation",
+    "option_2": "It increases the chances of a failed operation",
+    "option_3": "It is not advisable to be prepared in advance",
+    "option_4": "It ensures a successful operation",
+    "correct_answer": 1
+  },
+  {
+    "question": "What constitutional article in India directs the State to endeavor to bring about prohibition of the consumption of intoxicating drugs injurious to health, except for medicinal purposes?",
+    "option_1": "Article 44",
+    "option_2": "Article 51A",
+    "option_3": "Article 47",
+    "option_4": "Article 62",
+    "correct_answer": 3
+  },
+  {
+    "question": "Which international conventions guide India's policy on narcotic drugs and psychotropic substances?",
+    "option_1": "Single Convention on Narcotic Drugs 1961 and United Nations Convention on Human Rights",
+    "option_2": "Geneva Convention and Paris Agreement",
+    "option_3": "Conventions on Psychotropic Substances, 1971 and United Nations Convention against Corruption, 2003",
+    "option_4": "Single Convention on Narcotic Drugs 1961, Conventions on Psychotropic Substances, 1971, and United Nations Convention against Illicit Traffic in Narcotic Drugs and Psychotropic Substances, 1988",
+    "correct_answer": 4
+  },
+  {
+    "question": "Which of the following is NOT one of the three central acts mentioned in the passage related to narcotic drugs and psychotropic substances in India?",
+    "option_1": "Narcotic Drugs and Psychotropic Substances Act, 1985",
+    "option_2": "Drugs and Cosmetics Act, 1940",
+    "option_3": "Prevention of Illicit Traffic in Narcotic Drugs and Psychotropic Substances Act, 1988",
+    "option_4": "Central Bureau of Narcotics Act, 1970",
+    "correct_answer": 4
+  },
+  {
+    "question": "Which department has the nodal coordination role as the administrator of the Narcotic Drugs and Psychotropic Substances Act, 1985, and the Prevention of Illicit Traffic in Narcotic Drugs and Psychotropic Substances Act, 1988?",
+    "option_1": "Ministry of Health and Family Welfare",
+    "option_2": "Ministry of Home Affairs",
+    "option_3": "Ministry of Finance, Department of Revenue",
+    "option_4": "Ministry of Law and Justice",
+    "correct_answer": 3
+  },
+  {
+    "question": "When did the Narcotics Control Bureau (NCB) of India come into existence?",
+    "option_1": "14th November 1985",
+    "option_2": "17th March 1986",
+    "option_3": "14th November 1986",
+    "option_4": "17th March 1985",
+    "correct_answer": 2
+  },
+  {
+    "question": "What is the primary purpose of the Narcotics Control Bureau (NCB) in India?",
+    "option_1": "Medical research on narcotics",
+    "option_2": "Legal advocacy for drug consumers",
+    "option_3": "Coordination and enforcement related to narcotic drugs and psychotropic substances",
+    "option_4": "International diplomacy on drug policy",
+    "correct_answer": 3
+  },
+  {
+    "question": "Under what purpose does the Narcotics Control Bureau (NCB) coordinate actions by various offices, state governments, and other authorities?",
+    "option_1": "Enforcement of copyright laws",
+    "option_2": "Enforcement provisions of the NDPS Act, 1985",
+    "option_3": "Protection of wildlife and endangered species",
+    "option_4": "National security and defense",
+    "correct_answer": 2
+  },
+  {
+    "question": "What is the primary function of the zones and sub-zones established by the Narcotics Control Bureau (NCB) in India?",
+    "option_1": "Environmental conservation and wildlife protection",
+    "option_2": "Promoting tourism and cultural exchange",
+    "option_3": "Collecting and analyzing data related to narcotic drug seizures",
+    "option_4": "Providing medical assistance to drug users",
+    "correct_answer": 3
+  },
+  {
+    "question": "Which city is NOT listed as a location for one of the zones of the Narcotics Control Bureau (NCB)?",
+    "option_1": "Chandigarh",
+    "option_2": "Imphal",
+    "option_3": "Hyderabad",
+    "option_4": "Dehradun",
+    "correct_answer": 2
+  },
+  {
+    "question": "In what capacity does the Narcotics Control Bureau (NCB) work closely with Customs, State Police, and other law enforcement agencies?",
+    "option_1": "As a research institute",
+    "option_2": "As a legal advisory body",
+    "option_3": "As an apex coordinating agency and an enforcement agency",
+    "option_4": "As an international humanitarian organization",
+    "correct_answer": 3
+  },
+  {
+    "question": "What legislative policy contains the framework for controlling narcotic drugs and psychotropic substances in India?",
+    "option_1": "The Food Safety and Standards Act, 2006",
+    "option_2": "The Wildlife Protection Act, 1972",
+    "option_3": "The Narcotic Drugs and Psychotropic Substances Act, 1985",
+    "option_4": "The Air (Prevention and Control of Pollution) Act, 1981",
+    "correct_answer": 3
+  },
+  {
+    "question": "When was the Narcotics Control Bureau (NCB) created in India?",
+    "option_1": "1985",
+    "option_2": "1986",
+    "option_3": "1989",
+    "option_4": "1978",
+    "correct_answer": 2
+  },
+  {
+    "question": "What is the primary function of the NCB with respect to international conventions?",
+    "option_1": "Enforcement of international conventions",
+    "option_2": "Implementation of domestic controls",
+    "option_3": "Coordination and cooperation with foreign authorities",
+    "option_4": "Prevention of drug abuse",
+    "correct_answer": 3
+  },
+  {
+    "question": "Which major international drug control conventions is India a signatory to?",
+    "option_1": "The 1961 Single Convention and the 1988 Convention Against Illicit Traffic",
+    "option_2": "The 1971 Convention Against Psychotropic Substances",
+    "option_3": "The 1971 Convention Against Psychotropic Substances and the 1988 Convention Against Illicit Traffic",
+    "option_4": "The 1961 Single Convention, the 1971 Convention Against Psychotropic Substances, and the 1988 Convention Against Illicit Traffic",
+    "correct_answer": 4
+  },
+  {
+    "question": "What is the role of the NCB in coordinating various drug law enforcement agencies in India?",
+    "option_1": "Implementation of domestic controls",
+    "option_2": "Assisting states in enhancing their drug law enforcement efforts",
+    "option_3": "Collection and dissemination of intelligence",
+    "option_4": "National contact point for intelligence and investigations",
+    "correct_answer": 3
+  },
+  {
+    "question": "What function has been assigned to the Narcotics Control Bureau due to India's federal nature and various agencies involved in drug law enforcement?",
+    "option_1": "Collection of drug enforcement statistics",
+    "option_2": "Implementation of international drug control conventions",
+    "option_3": "Coordination among various Central and State Agencies",
+    "option_4": "Combating illicit drug crop cultivation",
+    "correct_answer": 3
+  }
+]
