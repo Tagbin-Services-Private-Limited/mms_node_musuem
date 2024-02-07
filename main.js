@@ -112,13 +112,13 @@ async function createWindow() {
   mainWindow = new BrowserWindow({
     resizable: true,
     closable: false,
-    width: 1080,
-    height: 1920,
+    width: 1980,
+    height: 1080,
     alwaysOnTop: true,
     show: true,
     autoHideMenuBar: false,
-    fullscreen: true,
-    frame: false, // Remove title bar
+    // fullscreen: true,
+    // frame: false, // Remove title bar
     webPreferences: {
       preload: fileToPreload,
       nodeIntegration: true,
@@ -129,7 +129,7 @@ async function createWindow() {
   // win = mainWindow;
   // mainWindow.setFullScreen(isDev || APP_DATA.watchout ? false : true);
   // mainWindow.setFullScreen(false);
-  mainWindow.loadFile("index.html");
+  // mainWindow.loadFile("index.html");
   // Open the DevTools.
   //mainWindow.webContents.openDevTools();
   mainWindow.webContents.on("did-finish-load", () => {
@@ -264,7 +264,7 @@ ipcMain.on("renderer2main", (event, arg) => {
   // console.log("event, arg :>> ", event, arg);
   console.log(arg); // prints "ping"
   event.reply("main2renderer", "main2renderer");
-  tcp.TCPHandler.sendMessage(arg);
+  // tcp.TCPHandler.sendMessage(arg);
   //console.log(tcp.TCPHandler.sendMessage(arg));
 });
 // Listen for the event from the renderer process
@@ -288,20 +288,10 @@ ipcMain.on("event-received", (event, data) => {
   mainWindow.webContents.send("event-received", event);
 });
 ipcMain.on("event-clicked", (event, data) => {
-  console.log(
-    "event-clicked :*********************************************88>> ",
-    data,
-    typeof data
-  );
   sendDataFromTableToWall(data);
 });
 ipcMain.on("form-data", (event, data) => {
-  console.log(
-    "form-data :*********************************************88>> ",
-    data,
-    typeof data
-  );
-  if(global.APP_DATA.isCustomerFeedbackApp){
+  if (global.APP_DATA.isCustomerFeedbackApp) {
     saveDataInNeDB(data);
   }
 });
@@ -432,7 +422,7 @@ setInterval(async () => {
         video_list: video_list,
         mac_addr: APP_DATA.mac_address,
       };
-      console.log('heartbeatPayload :>> ', heartbeatPayload);
+      // console.log("heartbeatPayload 435:>> ", heartbeatPayload);
       axios
         .post(
           APP_DATA.api_root_protocol +
@@ -449,7 +439,7 @@ setInterval(async () => {
           }
         )
         .then(function (response) {
-          console.log('response :>> ', response.data);
+          // console.log("response :>> ", response.data);
           APP_DATA.heartbeat_response = response.data;
           // console.log("heartbeat endpoint response---->>>", response.data);
           mainWindow.webContents.send("webContents2Renderer", {
@@ -464,33 +454,33 @@ setInterval(async () => {
             action: "ERROR",
             data: error,
           });
-//           if (error.response.status == 401) {
-//             try {
-//               fs.unlinkSync(dbFilename);
-//               try{
+          //           if (error.response.status == 401) {
+          //             try {
+          //               fs.unlinkSync(dbFilename);
+          //               try{
 
-//                 fs.unlink(dbFilename, function (err) {
-//                   if (err) console.log(err);
-//                   console.log("File deleted!");
-//                 });
-//               }catch(error){
-// console.log('file already deleted no worries :>> ');
-//               }
-//               APP_DATA.enable_heartbeat = false;
-//               APP_DATA.enable_registration = true;
-//               mainWindow.webContents.send("webContents2Renderer", {
-//                 action: "DATA",
-//                 data: "Uanuthorised, resetting the application.",
-//               });
-//               startRegistration();
-//             } catch (err) {
-//               console.error(err);
-//               mainWindow.webContents.send("webContents2Renderer", {
-//                 action: "ERROR",
-//                 data: "Unable to delete Database file",
-//               });
-//             }
-//           }
+          //                 fs.unlink(dbFilename, function (err) {
+          //                   if (err) console.log(err);
+          //                   console.log("File deleted!");
+          //                 });
+          //               }catch(error){
+          // console.log('file already deleted no worries :>> ');
+          //               }
+          //               APP_DATA.enable_heartbeat = false;
+          //               APP_DATA.enable_registration = true;
+          //               mainWindow.webContents.send("webContents2Renderer", {
+          //                 action: "DATA",
+          //                 data: "Uanuthorised, resetting the application.",
+          //               });
+          //               startRegistration();
+          //             } catch (err) {
+          //               console.error(err);
+          //               mainWindow.webContents.send("webContents2Renderer", {
+          //                 action: "ERROR",
+          //                 data: "Unable to delete Database file",
+          //               });
+          //             }
+          //           }
         });
     } catch (e) {
       console.log("main Error While sending Heartbeat" + e);
@@ -510,6 +500,14 @@ function startRegistration() {
       // Send Registration Signal if enabled
       if (APP_DATA.enable_registration) {
         try {
+          mainWindow.webContents.send(
+            "webContents2Renderer",
+            "system ip is" + APP_DATA.system_ip
+          );
+          mainWindow.webContents.send(
+            "webContents2Renderer",
+            "Sending data of Resolume to 192.168.0.180"
+          );
           mainWindow.webContents.send(
             "webContents2Renderer",
             "sending REGISTARTION request to:" +
@@ -586,7 +584,7 @@ function startRegistration() {
                             response.data.success.auth_token;
                           APP_DATA.device_token =
                             response.data.success.device_token;
-                          mainWindow.loadFile("index.html");
+                          // mainWindow.loadFile("index.html");
                           clearInterval(registrationInterval);
                         })
                         .catch((error) => {
@@ -739,7 +737,8 @@ if (global.APP_DATA.isResolume) {
           data != undefined &&
           data["layers"] != undefined &&
           data["layers"][0] != undefined &&
-          data["layers"][0]["clips"][1]
+          data["layers"][0]["clips"][1] &&
+          data["layers"][0]["clips"][1]["transport"]
         ) {
           let id2 =
             data["layers"][0]["clips"][1]["transport"]["position"]["id"];
@@ -795,6 +794,7 @@ if (global.APP_DATA.isResolume) {
           }
         }
       }
+      // console.log('RESOLUME_DATA :>> ', RESOLUME_DATA);
     } catch (err) {
       console.log("e", err);
     }
@@ -806,3 +806,21 @@ if (global.APP_DATA.isResolume) {
 global.RESOLUME_DATA = RESOLUME_DATA;
 
 //////////////////////////
+
+electronLog = {
+  electronLogInConsole: function (dataToShow) {
+    try {
+      mainWindow.webContents.send(
+        "webContents2Renderer",
+        `electronLogInConsole ${JSON.stringify(dataToShow)}`
+      );
+    } catch (e) {
+      sendToCloudFunction(
+        `error from registration 596 :>>  ${JSON.stringify(e)}`
+      );
+      console.log("error in starting 609", e);
+    }
+  },
+};
+
+exports.electronLog = electronLog;

@@ -282,7 +282,7 @@ ipcRenderer.on("webContents2Renderer", (event, message) => {
   // );
   const cmdArray =
     message && typeof message != "object" ? message.split(" ") : "other";
-  console.log("message :>> ", message);
+  console.log("message that is going to display on debug screen :>> ", message);
   // sendMessageToRenderer(message);
   if (typeof message == "string" || typeof message == "String") {
     if (message.startsWith("reload")) {

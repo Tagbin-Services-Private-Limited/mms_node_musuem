@@ -24,7 +24,7 @@ function startServer() {
       });
 
       socket.on("error", (err) => {
-        console.error(`Error: ${err.message}`);
+        console.error(`Error 27: ${err.message}`);
       });
     });
 

@@ -25,7 +25,7 @@ function startTactionWallServer() {
       });
 
       socket.on("error", (err) => {
-        console.error(`Error: ${err.message}`);
+        console.error(`Error 28: ${err.message}`);
       });
     });
 

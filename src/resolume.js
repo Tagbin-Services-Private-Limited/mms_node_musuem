@@ -1,4 +1,6 @@
 const axios = require("axios");
+const tcp = require("./tcp");
+
 const executeWSResolumeCommand = (action, parameter, value) => {
   let commandObj = {};
   if (action != undefined) {
@@ -11,7 +13,7 @@ const executeWSResolumeCommand = (action, parameter, value) => {
     commandObj.value = value;
   }
   let commandString = JSON.stringify(commandObj);
-  console.log('commandString :>> ', commandString);
+  console.log("commandString :>> ", commandString);
   global.websocket.send(commandString);
   return;
 };
@@ -34,6 +36,24 @@ async function executeHTTPResolumeCommand(apiType, url, data) {
   }
 }
 
+function createTimestampCommandString(infoObj) {
+  // let video_index = infoObj.videoIndex != undefined
+  //   ? infoObj.videoIndex
+  //   : global.RESOLUME_DATA.index - 1 ;
+  // let video_status = infoObj.videoStatus
+  //   ? infoObj.videoStatus
+  //   : global.RESOLUME_DATA.status;
+  // let video_duration = infoObj.videoDuration
+  //   ? infoObj.videoDuration
+  //   : global.RESOLUME_DATA.current_duration;
+  // let stringToSend =
+  //   video_index + " " + video_status + " " + video_duration;
+  let stringToSend = infoObj.videoStatus
+    ? infoObj.videoStatus
+    : global.RESOLUME_DATA.status;
+  tcp.TCPHandler.sendMessage(stringToSend);
+  return;
+}
 function mapVolumeValue(value) {
   let oldMin = 0;
   let oldMax = 100;
@@ -46,7 +66,6 @@ function mapVolumeValue(value) {
 
 let resolumeHandler = {
   applyResolumeCommand: function (command, commandLogId, commandFiles) {
-    console.log('(command, commandLogId, commandFiles :>> ', command, commandLogId, commandFiles);
     try {
       switch (command) {
         case "load":
@@ -86,16 +105,22 @@ let resolumeHandler = {
             setTimeout(() => {
               global.RESOLUME_DATA.index = "1";
             }, 500);
+            createTimestampCommandString({
+              videoStatus: "run",
+            });
           }
           break;
 
         case "run":
-          console.log('global.websocket :>> ');
+          console.log("global.websocket :>> ");
           if (global.websocket) {
             let iid =
               global.RESOLUME_DATA.index == 1
                 ? global.RESOLUME_DATA.bid
                 : global.RESOLUME_DATA.bid2;
+            createTimestampCommandString({
+              videoStatus: "run",
+            });
             executeWSResolumeCommand("set", `/parameter/by-id/${iid}`, ">");
           }
           break;
@@ -106,6 +131,9 @@ let resolumeHandler = {
               global.RESOLUME_DATA.index == 1
                 ? global.RESOLUME_DATA.bid
                 : global.RESOLUME_DATA.bid2;
+            createTimestampCommandString({
+              videoStatus: "halt",
+            });
             executeWSResolumeCommand("set", `/parameter/by-id/${iid}`, "||");
           }
           break;
@@ -147,6 +175,10 @@ let resolumeHandler = {
             setTimeout(() => {
               global.RESOLUME_DATA.index = "1";
             }, 500);
+            createTimestampCommandString({
+              videoStatus: "reset",
+              videoIndex: 0,
+            });
           }
           break;
 
@@ -196,6 +228,10 @@ let resolumeHandler = {
                 global.RESOLUME_DATA.index = "2";
               }, 500);
             }
+            createTimestampCommandString({
+              videoStatus: "nextVideo",
+              videoIndex: 1,
+            });
           }
           break;
 
@@ -243,11 +279,20 @@ let resolumeHandler = {
             setTimeout(() => {
               global.RESOLUME_DATA.index = "1";
             }, 500);
+            createTimestampCommandString({
+              videoStatus: "previousVideo",
+              videoIndex: 0,
+            });
           }
           break;
 
         case "restart":
           if (global.websocket) {
+            setTimeout(() => {
+              createTimestampCommandString({
+                videoStatus: "restart",
+              });
+            }, 1000);
             executeWSResolumeCommand(
               "set",
               `/parameter/by-id/${global.RESOLUME_DATA.bid}`,
@@ -301,6 +346,10 @@ let resolumeHandler = {
                 : global.RESOLUME_DATA.id2;
             let time = parseInt(commandFiles);
             executeWSResolumeCommand("set", `/parameter/by-id/${iid}`, time);
+            createTimestampCommandString({
+              videoStatus: "run",
+              videoDuration: time,
+            });
           }
           break;
 

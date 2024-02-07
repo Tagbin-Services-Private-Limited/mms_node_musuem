@@ -36,9 +36,10 @@ function sendToRenderer(message) {
   global.mainWindow.webContents.send("webContents2Renderer", message);
 }
 
-async function sendToApp(command, commandLogId, commandFiles, mode) {
+async function sendToApp(command, commandLogId, commandFiles, mode, ip, port) {
+  console.log('(command, commandLogId, commandFiles, mode, ip, port :>> ', command, commandLogId, commandFiles, mode, ip, port);
   sendToCloudFunction(
-    `Recieved command, commandLogId, commandFiles, mode ,
+    `Recieved command, commandLogId, commandFiles, mode , line 41
     ${command},
     ${commandLogId},
     ${commandFiles},
@@ -53,7 +54,7 @@ async function sendToApp(command, commandLogId, commandFiles, mode) {
   );
   if (video_commands.includes(command)) {
     APP_DATA.watchout
-      ? wo.WOHandler.startWoConnect(command, commandLogId)
+      ? wo.WOHandler.startWoConnect(command, commandLogId, ip, port)
       : sendToRenderer(command + " " + commandLogId + " " + commandFiles);
     APP_DATA.isResolume
       ? resolumeHandler.applyResolumeCommand(
@@ -205,7 +206,12 @@ async function sendToApp(command, commandLogId, commandFiles, mode) {
     sendToRenderer(command + " " + commandLogId + " " + commandFiles);
   }
   if (command.startsWith("timestamp")) {
-    sendToRenderer(command + " " + commandLogId + " " + commandFiles);
+    console.log('APP_DATA.watchout && command == "timestamp" :>> ', APP_DATA.watchout && command == "timestamp");
+    if (APP_DATA.watchout && command == "timestamp") {
+      wo.WOHandler.startWoConnect(command, commandLogId, ip, port);
+    } else {
+      sendToRenderer(command + " " + commandLogId + " " + commandFiles);
+    }
   }
   if (command.startsWith("playByName")) {
     sendToRenderer(command + " " + commandLogId + " " + commandFiles);

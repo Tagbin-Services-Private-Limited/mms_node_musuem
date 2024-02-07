@@ -10,93 +10,29 @@ const util = require("util");
 const { video_commands } = require("./communicator");
 const sendToCloudFunction = require("./messages");
 const nodeCrypto2 = require("crypto-browserify");
-const execAsync = util.promisify(exec);
-
+const crypto = require("crypto");
 global.SockList = [];
 // Creating a function to decrypt string
 let appPath = path.join(process.cwd());
 console.log("appPath :>> ", appPath);
-// async function decryptString(ciphertext, privateKeyFile) {
-//   try {
-//     // let fileName = "C:Users\\tagbi\\Desktop\\TAGBIN_CODE\\decrypt.js";
-//     //  let fileName = appPath.replace("mms_node", "decrypt.js");
-//     let fileName = "C:\\Users\\tagbi\\Desktop\\TAGBIN_CODE\\decrypt.js";
-//     const encryptedBufferJson = JSON.stringify(ciphertext)
-//       .replace(/'/g, "\\'")
-//       .replace(/"/g, '\\"');
 
-//     // console.log('ciphertext :>> ', JSON.stringify(ciphertext));
-//     const commandToDecrypt = `node ${fileName} ${encryptedBufferJson}`;
-//     let commandFromMMS = "";
-//     // console.log(
-//     //   "commandToDecrypt :=================================================>> ",
-//     //   commandToDecrypt
-//     // );
-//     // Execute the commandToDecrypt
-//     exec(commandToDecrypt, (error, stdout, stderr) => {
+function sendToRenderer(message) {
+  global.mainWindow.webContents.send("webContents2Renderer", message);
+}
 
-//       console.log("error, stdout, stderr :>> ", error, stdout, stderr);
-//       if (error) {
-//         console.error(`Error: ${error.message}`);
-//         return;
-//       }
-//       if (stderr) {
-//         console.error(`stderr: ${stderr}`);
-//         return;
-//       }
-//       commandFromMMS = stdout;
-//       console.log(`Decrypted Data: --------------${stdout}`);
-//       sendToCloudFunction(
-//         "RECIEVED THIS COMMAND VIA TCP:DECRYOTED",
-//         commandFromMMS
-//       );
-//       return commandFromMMS;
-//     });
-//     // sendToCloudFunction(ciphertext);
-//     // sendToCloudFunction(`privatekey ${privateKeyFile}`);
-//     // const privateKey = fs.readFileSync(privateKeyFile, "utf8");
+function decryptString(ciphertext, privateKeyFile) {
+  const privateKey = fs.readFileSync(privateKeyFile, "utf8");
 
-//     // // privateDecrypt() method with its parameters
-//     // const decrypted = nodeCrypto2.privateDecrypt(
-//     //   {
-//     //     key: privateKey,
-//     //     passphrase: "Trilok Panwar TriP " + mac_interface.default(),
-//     //   },
-//     //   Buffer.from(ciphertext, "base64")
-//     // );
+  // privateDecrypt() method with its parameters
+  const decrypted = crypto.privateDecrypt(
+    {
+      key: privateKey,
+      passphrase: "Trilok Panwar TriP " + mac_interface.default(),
+    },
+    Buffer.from(ciphertext, "base64")
+  );
 
-//     // return decrypted.toString("utf8");
-//   } catch (error) {
-//     sendToCloudFunction(
-//       `error in decrypting string   line 27:>>${JSON.stringify(error)}}`
-//     );
-//     console.log("error in decrypting string   1 :>> ", error);
-//   }
-// }
-async function decryptString(ciphertext, privateKeyFile) {
-  try {
-    let fileName = "C:\\Users\\tagbi\\Desktop\\TAGBIN_CODE\\decrypt.js";
-    const encryptedBufferJson = JSON.stringify(ciphertext)
-      .replace(/'/g, "\\'")
-      .replace(/"/g, '\\"');
-
-    const commandToDecrypt = `node ${fileName} ${encryptedBufferJson}`;
-
-    const { stdout, stderr } = await execAsync(commandToDecrypt);
-
-    if (stderr) {
-      console.error(`stderr: ${stderr}`);
-      throw new Error(stderr);
-    }
-
-    console.log(`Decrypted Data: ${stdout}`);
-    sendToCloudFunction("RECIEVED THIS COMMAND VIA TCP:DECRYPTED", stdout);
-    return stdout;
-  } catch (error) {
-    sendToCloudFunction(`error in decrypting string: ${JSON.stringify(error)}`);
-    console.error("Error in decrypting string:", error);
-    throw error;
-  }
+  return decrypted.toString("utf8");
 }
 
 // Creating a function to encrypt string
@@ -114,6 +50,19 @@ function encryptString(plaintext, publicKeyFile) {
   );
 
   return encrypted.toString("base64");
+}
+
+function sendTimestampResponse(sock) {
+  if (global.APP_DATA.isResolume) {
+    let stringToSend =
+      global.RESOLUME_DATA.index -
+      1 +
+      " " +
+      global.RESOLUME_DATA.current_duration / 1000 +
+      " " +
+      global.RESOLUME_DATA.status;
+    sock.write(stringToSend);
+  }
 }
 
 let TCPHandler = {
@@ -171,7 +120,6 @@ let TCPHandler = {
           }
         }
         sock.on("data", async function (data) {
-          console.log("data 1477777777777:>> ", data);
           let APP_DATA = global.APP_DATA;
           sendToCloudFunction(`data line 117 ${JSON.stringify(data)} ${port}`);
           console.log("data :>> ", data, port);
@@ -186,15 +134,20 @@ let TCPHandler = {
               sendToCloudFunction(`data line 128 ${JSON.stringify(dataArr)}`);
               const command = dataArr[0];
               if (global.APP_DATA.shutdown_2626 == false) {
+                console.log("143");
                 if (command == "timestamp") {
+                  console.log("145");
                   const commandLogId = sock.remotePort;
                   const commandFiles = sock.remoteAddress;
                   comHandler.sendToApp(
                     command,
                     commandLogId,
                     commandFiles,
-                    "TCP"
+                    "TCP",
+                    commandFiles,
+                    commandLogId
                   );
+                  sendTimestampResponse(sock);
                   // } else if (video_commands.includes(command)) {
                 } else {
                   const commandLogId = dataArr[1];
@@ -210,24 +163,20 @@ let TCPHandler = {
                   );
                 }
               } else {
+                console.log("172");
                 if (command == "timestamp") {
+                  console.log("174");
                   const commandLogId = sock.remotePort;
                   const commandFiles = sock.remoteAddress;
-                  console.log(
-                    "command:" +
-                      command +
-                      ", commandLogId:" +
-                      (commandLogId ? commandLogId : "") +
-                      ", commandFiles:" +
-                      (commandFiles ? commandFiles : "")
-                  );
-                  // Send data to communcator for parsing & execution
                   comHandler.sendToApp(
                     command,
                     commandLogId,
                     commandFiles,
-                    "TCP"
+                    "TCP",
+                    commandFiles,
+                    commandLogId
                   );
+                  sendTimestampResponse(sock);
                 } else {
                   tcp.TCPHandler.sendMessageOnce(
                     "\rSorry, I have a boyfriend\r",
@@ -253,7 +202,9 @@ let TCPHandler = {
                   command,
                   commandLogId,
                   commandFiles,
-                  "TCP"
+                  "TCP",
+                  commandFiles,
+                  commandLogId
                 );
               } else {
                 const commandLogId = dataArr[1];
@@ -273,13 +224,17 @@ let TCPHandler = {
             }
           } catch (e) {
             sendToCloudFunction(`exception 217 ${JSON.stringify(e)} ${e}`);
-            console.log("Exception" + e);
+            console.log(
+              "Exception-------------------------------------------",
+              e
+            );
             let index = TCPHandler.sockets.findIndex(function (o) {
               return (
                 o.remoteAddress === sock.remoteAddress &&
                 o.remotePort === sock.remotePort
               );
             });
+            console.log("index :>> ", index);
             if (index !== -1) TCPHandler.sockets.splice(index, 1);
             console.log(
               "startTCPServer: CLOSEDD removing socket from scoket array: " +
@@ -377,10 +332,12 @@ let TCPHandler = {
     }
   },
   sendMessageOnce: function (message, ip, port) {
+    console.log("message, ip, port :>> ", message, ip, port);
+    sendToRenderer("timestamp command is " + message + " " + ip + " " + port);
     let sock = TCPHandler.sockets.find(
       (sock, index) => sock.remoteAddress == ip && sock.remotePort == port
     );
-    console.log("sending message to the sofket", sock);
+    // console.log("sending message to the sofket", sock);
     if (sock != undefined) {
       try {
         console.log(
