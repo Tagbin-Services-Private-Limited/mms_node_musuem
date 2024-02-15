@@ -25,7 +25,7 @@ let video_list = [];
 let APP_DATA = {
   app_version: "0.0",
   api_root_protocol: "http",
-  api_root: "192.168.0.1:8000",
+  api_root: "127.0.0.1:8000",
   content_dir: ".",
   heartbeat_api_endpoint: "/heartbeat/",
   registration_api_endpoint: "/node_register/",
@@ -39,7 +39,7 @@ let APP_DATA = {
   tcp_port_encrypt: 2627,
   udp_port: 2625,
   isCustomerFeedbackApp: false,
-  watchout: true,
+  watchout: false,
   isResolume: false,
   is_taction_table: false,
   taction_table_host: "192.168.10.52",

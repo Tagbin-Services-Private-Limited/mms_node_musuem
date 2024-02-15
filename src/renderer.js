@@ -225,10 +225,10 @@ function sync_heartbeat(player) {
 
 function sendHeartbeat(cmdId, type, message) {
   let heartbeat_message = cmdId + ":" + type + ":" + message;
-  ipcRenderer.invoke("com_heartbeat", heartbeat_message).then((result) => {
-    // ...
-    //console.log(result);
-  });
+  // ipcRenderer.invoke("com_heartbeat", heartbeat_message).then((result) => {
+  //   // ...
+  //   //console.log(result);
+  // });
 }
 // function sendMessageToRenderer( message) {
 //   ipcRenderer.invoke("message-from-renderer", message).then((result) => {

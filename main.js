@@ -108,19 +108,19 @@ async function createWindow() {
   );
   // Create the browser window.
   let fileToPreload = path.join(__dirname, "src/preload.js");
-  console.log("fileToPreload :>> ", fileToPreload);
+  // console.log("fileToPreload :>> ", fileToPreload);
   mainWindow = new BrowserWindow({
     resizable: true,
     closable: false,
-    width: 1980,
-    height: 1080,
+    width: 5760,
+    height: 2160,
     alwaysOnTop: true,
     show: true,
     autoHideMenuBar: false,
     // fullscreen: true,
     // frame: false, // Remove title bar
     webPreferences: {
-      preload: fileToPreload,
+      // preload: fileToPreload,
       nodeIntegration: true,
       contextIsolation: false,
       enableRemoteModule: true,
@@ -129,12 +129,14 @@ async function createWindow() {
   // win = mainWindow;
   // mainWindow.setFullScreen(isDev || APP_DATA.watchout ? false : true);
   // mainWindow.setFullScreen(false);
-  // mainWindow.loadFile("index.html");
+  mainWindow.loadFile("index.html");
   // Open the DevTools.
   //mainWindow.webContents.openDevTools();
   mainWindow.webContents.on("did-finish-load", () => {
     mainWindow.show();
+    console.log("--------------------inside google-------------------------");
     mainWindow.webContents.send("webContents2Renderer", "Browser ready to use");
+    // mainWindow.loadURL("https://www.google.com/");
   });
   mainWindow.webContents.send(
     "webContents2Renderer",
@@ -387,112 +389,112 @@ app.on("window-all-closed", function () {
 });
 
 /////////////////////////SEND HEARTBEAT//////////////////////////
-setInterval(async () => {
-  if (APP_DATA.enable_heartbeat) {
-    // console.log("Sending Heartbeat from main.js 617");
-    try {
-      osInfo.mem((memory) => {
-        // console.log('memory :>> ', memory);
-        APP_DATA.system_vitals.ram_usage = Math.round(memory * 100);
-      });
-      osInfo.cpu((cpu) => {
-        // console.log('cpu :>> ', cpu);
-        APP_DATA.system_vitals.cpu_usage = Math.round(cpu * 100);
-      });
-      // osInfo.disk((disk) => {
-      //   // console.log('disk :>> ', disk);
-      //   APP_DATA.system_vitals.disk_usage = Math.round(disk * 100);
-      // });
-      APP_DATA.system_vitals.uptime = os.uptime();
-      console.log(current_volume * 100);
-      let heartbeatPayload = {
-        disc_space_usage: APP_DATA.system_vitals.disk_usage,
-        cpu_usage: APP_DATA.system_vitals.cpu_usage,
-        ram_usage: APP_DATA.system_vitals.ram_usage,
-        temparature: APP_DATA.system_vitals.temprature,
-        uptime: APP_DATA.system_vitals.uptime,
-        version: APP_DATA.app_version,
-        current_video_number: current_video_number,
-        current_video_name: current_video_name,
-        current_timestamp: current_timestamp,
-        current_video_status: current_video_status,
-        current_volume: current_volume,
-        totalVideos: totalVideos,
-        vduration: vduration,
-        video_list: video_list,
-        mac_addr: APP_DATA.mac_address,
-      };
-      // console.log("heartbeatPayload 435:>> ", heartbeatPayload);
-      axios
-        .post(
-          APP_DATA.api_root_protocol +
-            "://" +
-            APP_DATA.api_root +
-            "" +
-            APP_DATA.heartbeat_api_endpoint,
-          heartbeatPayload,
-          {
-            headers: {
-              Authorization: `Token ${APP_DATA.auth_token}`,
-            },
-            httpsAgent: new https.Agent({ rejectUnauthorized: false }),
-          }
-        )
-        .then(function (response) {
-          // console.log("response :>> ", response.data);
-          APP_DATA.heartbeat_response = response.data;
-          // console.log("heartbeat endpoint response---->>>", response.data);
-          mainWindow.webContents.send("webContents2Renderer", {
-            type: "DATA",
-            data: response.data,
-          });
-        })
-        .catch(function (error) {
-          APP_DATA.heartbeat_response = error;
-          console.log("error sending heartbeat//", error);
-          mainWindow.webContents.send("webContents2Renderer", {
-            action: "ERROR",
-            data: error,
-          });
-          //           if (error.response.status == 401) {
-          //             try {
-          //               fs.unlinkSync(dbFilename);
-          //               try{
+// setInterval(async () => {
+//   if (APP_DATA.enable_heartbeat) {
+//     // console.log("Sending Heartbeat from main.js 617");
+//     try {
+//       osInfo.mem((memory) => {
+//         // console.log('memory :>> ', memory);
+//         APP_DATA.system_vitals.ram_usage = Math.round(memory * 100);
+//       });
+//       osInfo.cpu((cpu) => {
+//         // console.log('cpu :>> ', cpu);
+//         APP_DATA.system_vitals.cpu_usage = Math.round(cpu * 100);
+//       });
+//       // osInfo.disk((disk) => {
+//       //   // console.log('disk :>> ', disk);
+//       //   APP_DATA.system_vitals.disk_usage = Math.round(disk * 100);
+//       // });
+//       APP_DATA.system_vitals.uptime = os.uptime();
+//       console.log(current_volume * 100);
+//       let heartbeatPayload = {
+//         disc_space_usage: APP_DATA.system_vitals.disk_usage,
+//         cpu_usage: APP_DATA.system_vitals.cpu_usage,
+//         ram_usage: APP_DATA.system_vitals.ram_usage,
+//         temparature: APP_DATA.system_vitals.temprature,
+//         uptime: APP_DATA.system_vitals.uptime,
+//         version: APP_DATA.app_version,
+//         current_video_number: current_video_number,
+//         current_video_name: current_video_name,
+//         current_timestamp: current_timestamp,
+//         current_video_status: current_video_status,
+//         current_volume: current_volume,
+//         totalVideos: totalVideos,
+//         vduration: vduration,
+//         video_list: video_list,
+//         mac_addr: APP_DATA.mac_address,
+//       };
+//       // console.log("heartbeatPayload 435:>> ", heartbeatPayload);
+//       axios
+//         .post(
+//           APP_DATA.api_root_protocol +
+//             "://" +
+//             APP_DATA.api_root +
+//             "" +
+//             APP_DATA.heartbeat_api_endpoint,
+//           heartbeatPayload,
+//           {
+//             headers: {
+//               Authorization: `Token ${APP_DATA.auth_token}`,
+//             },
+//             httpsAgent: new https.Agent({ rejectUnauthorized: false }),
+//           }
+//         )
+//         .then(function (response) {
+//           // console.log("response :>> ", response.data);
+//           APP_DATA.heartbeat_response = response.data;
+//           // console.log("heartbeat endpoint response---->>>", response.data);
+//           mainWindow.webContents.send("webContents2Renderer", {
+//             type: "DATA",
+//             data: response.data,
+//           });
+//         })
+//         .catch(function (error) {
+//           APP_DATA.heartbeat_response = error;
+//           console.log("error sending heartbeat//", error);
+//           mainWindow.webContents.send("webContents2Renderer", {
+//             action: "ERROR",
+//             data: error,
+//           });
+//           //           if (error.response.status == 401) {
+//           //             try {
+//           //               fs.unlinkSync(dbFilename);
+//           //               try{
 
-          //                 fs.unlink(dbFilename, function (err) {
-          //                   if (err) console.log(err);
-          //                   console.log("File deleted!");
-          //                 });
-          //               }catch(error){
-          // console.log('file already deleted no worries :>> ');
-          //               }
-          //               APP_DATA.enable_heartbeat = false;
-          //               APP_DATA.enable_registration = true;
-          //               mainWindow.webContents.send("webContents2Renderer", {
-          //                 action: "DATA",
-          //                 data: "Uanuthorised, resetting the application.",
-          //               });
-          //               startRegistration();
-          //             } catch (err) {
-          //               console.error(err);
-          //               mainWindow.webContents.send("webContents2Renderer", {
-          //                 action: "ERROR",
-          //                 data: "Unable to delete Database file",
-          //               });
-          //             }
-          //           }
-        });
-    } catch (e) {
-      console.log("main Error While sending Heartbeat" + e);
-    }
-  }
-}, 15000);
+//           //                 fs.unlink(dbFilename, function (err) {
+//           //                   if (err) console.log(err);
+//           //                   console.log("File deleted!");
+//           //                 });
+//           //               }catch(error){
+//           // console.log('file already deleted no worries :>> ');
+//           //               }
+//           //               APP_DATA.enable_heartbeat = false;
+//           //               APP_DATA.enable_registration = true;
+//           //               mainWindow.webContents.send("webContents2Renderer", {
+//           //                 action: "DATA",
+//           //                 data: "Uanuthorised, resetting the application.",
+//           //               });
+//           //               startRegistration();
+//           //             } catch (err) {
+//           //               console.error(err);
+//           //               mainWindow.webContents.send("webContents2Renderer", {
+//           //                 action: "ERROR",
+//           //                 data: "Unable to delete Database file",
+//           //               });
+//           //             }
+//           //           }
+//         });
+//     } catch (e) {
+//       console.log("main Error While sending Heartbeat" + e);
+//     }
+//   }
+// }, 1500000);
 let isRegisterationInitialised = false;
 /////////////////////////SEND REGISTRATION///////////////////////
 function startRegistration() {
   try {
     console.log("startRegistration called --------->>>>>>>>");
-    mainWindow.loadFile("heartbeat.html");
+    // mainWindow.loanitidFile("heartbeat.html");
     UNIQUE_REG_CODE = Math.floor(Math.random() * 90000) + 10000;
     // DEVICE token  to be used for encrypting messages over TCP
     DEVICE_TOKEN = Math.floor(Math.random() * 90000) + 10000;
@@ -651,9 +653,9 @@ function startRegistration() {
         }
       }
     }
-    initializeRegistration();
+    // initializeRegistration();
     if (!isRegisterationInitialised) {
-      var registrationInterval = setInterval(initializeRegistration, 12000);
+      // var registrationInterval = setInterval(initializeRegistration, 1200000);
       isRegisterationInitialised = true;
     }
   } catch (e) {
