@@ -111,10 +111,10 @@ async function createWindow() {
   let fileToPreload = path.join(__dirname, "src/preload.js");
   // console.log("fileToPreload :>> ", fileToPreload);
   mainWindow = new BrowserWindow({
-    resizable: true,
+    resizable: false,
     closable: false,
     width: 5760,
-    height: 1080,
+    height: 2160,
     alwaysOnTop: true,
     show: true,
     autoHideMenuBar: false,
