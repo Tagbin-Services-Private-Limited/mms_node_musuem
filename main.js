@@ -59,6 +59,7 @@ setVolumne();
 const startServer = require("./src/tactionTable");
 const startTactionWallServer = require("./src/tactionToWallEventReciever");
 const sendDataFromTableToWall = require("./src/tactionToWallEventSender");
+const prepareConfigData = require("./src/sendConfig");
 const saveDataInNeDB = require("./src/dataSaverInNeDB");
 if (global.APP_DATA.is_taction_table) {
   // const tactionTableServer = startServer();
@@ -113,12 +114,12 @@ async function createWindow() {
     resizable: true,
     closable: false,
     width: 5760,
-    height: 2160,
+    height: 1080,
     alwaysOnTop: true,
     show: true,
     autoHideMenuBar: false,
-    // fullscreen: true,
-    // frame: false, // Remove title bar
+    fullscreen: true,
+    frame: false, // Remove title bar
     webPreferences: {
       // preload: fileToPreload,
       nodeIntegration: true,
@@ -292,6 +293,10 @@ ipcMain.on("event-received", (event, data) => {
 ipcMain.on("event-clicked", (event, data) => {
   sendDataFromTableToWall(data);
 });
+ipcMain.on("getConfig", async (event, data) => {
+  let configDataForBuild = await prepareConfigData(data);
+  event.reply("recievedConfig", configDataForBuild);
+});
 ipcMain.on("form-data", (event, data) => {
   if (global.APP_DATA.isCustomerFeedbackApp) {
     saveDataInNeDB(data);
@@ -299,7 +304,6 @@ ipcMain.on("form-data", (event, data) => {
 });
 ipcMain.on("timestamp", (event, arg) => {
   event.reply("main2renderer", "main2renderer");
-  console.log("arg--------------------", event, arg); // prints "ping"
   const message = arg.split("@")[2];
   const ip = arg.split("@")[1];
   const port = arg.split("@")[0];

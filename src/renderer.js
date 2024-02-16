@@ -1051,16 +1051,19 @@ ipcRenderer.on("webContents2Renderer", (event, message) => {
 });
 
 ipcRenderer.on("socket-data", (event, data) => {
-  console.log("Data received in socketttttttttttrenderer process:",event, data);
-  // Handle the received data as needed in the renderer process
-});
-ipcRenderer.on("event-clicked", (event, data) => {
   console.log(
-    "Data received in taction table renderer process:",
+    "Data received in socketttttttttttrenderer process:",
     event,
     data
   );
   // Handle the received data as needed in the renderer process
+});
+ipcRenderer.on("event-clicked", (event, data) => {
+  console.log("Data received in taction table renderer process:", event, data);
+  // Handle the received data as needed in the renderer process
+});
+ipcRenderer.on("getConfig", (event, data) => {
+  console.log("Get config request recieved", event, data);
 });
 ipcRenderer.on("socket-data", (event, data) => {
   console.log(
