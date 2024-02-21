@@ -854,7 +854,6 @@ electronLog = {
   },
 };
 setTimeout(() => {
-  console.log("appdatatatata", global.APP_DATA.SOCKET_CONNECTION_URL);
   const socket = io(global.APP_DATA.SOCKET_CONNECTION_URL); // Adjust the server address as needed
   socket.on("connect", () => {
     console.log(
@@ -868,7 +867,6 @@ setTimeout(() => {
   });
   socket.on("close-window", () => {
     if (global.APP_DATA.DISPLAY_SCREEN === "WIDGET_BAR") {
-      console.log("Closing new windows...");
       newWindows.forEach((win) => {
         if (!win.isDestroyed()) {
           win.close();
@@ -917,7 +915,6 @@ function createNewWindow(url) {
 }
 ipcMain.on("open-url", (event, url) => {
   if (global.APP_DATA.DISPLAY_SCREEN === "WIDGET_BAR") {
-    console.log("URL received to open:", url);
     createNewWindow(url); // This will now open the URL in a new window
   }
 });
