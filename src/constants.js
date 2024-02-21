@@ -4,6 +4,8 @@ const mac_interface = require("getmac");
 const os = require("os");
 const user_info = os.userInfo();
 const loudness = require("loudness");
+const path = require("path");
+const fs = require("fs");
 const {
   setData,
   findImageData,
@@ -134,6 +136,36 @@ const setPastConfigsOnLoad = async () => {
     global.APP_DATA.shutdown_2626 = fetchedData.data[0].shutdown_2626;
   }
 };
+
+// for reading configs from settings.json and set in global variables
+const setBackendConfigs = async () => {
+  try {
+    const desktopPath = app.getPath("desktop");
+    const settingsFilePath = path.join(desktopPath, "settings.json");
+    if (fs.existsSync(settingsFilePath)) {
+      return new Promise((resolve, reject) => {
+        fs.readFile(settingsFilePath, "utf-8", (readErr, data) => {
+          if (readErr) {
+            resolve("Error in reading settings json");
+          } else {
+            //
+            global.APP_DATA.SOCKET_CONNECTION_URL = data.SOCKET_CONNECTION_URL;
+            global.APP_DATA.BACKEND_CONNECTION_URL =
+              data.BACKEND_CONNECTION_URL;
+            global.APP_DATA.DISPLAY_SCREEN = data.DISPLAY_SCREEN;
+            resolve(true);
+          }
+        });
+      });
+    } else {
+      return "Settings file not found";
+    }
+  } catch (err) {
+    console.log("err prepareConfigData_________________________:>> ", err);
+    return "Error in reading settings.json function";
+  }
+};
+
 process.env.ENVIRONMENT = "DEBUG";
 mainWindow = null;
 
@@ -150,4 +182,5 @@ module.exports = {
   setMacAddress,
   setVolumne,
   setPastConfigsOnLoad,
+  setBackendConfigs,
 };

@@ -40,17 +40,3 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 // Connect to the Socket.io server
-const socket = io("http://192.168.1.105:3005"); // Adjust the server address as needed
-
-// Listen for the 'connect' event to log a message when the connection is successful
-socket.on("connect", () => {
-  console.log("Successfully connected to the Socket.io server");
-});
-
-socket.on("open-url", (url) => {
-  ipcRenderer.send("open-url", url);
-});
-
-socket.on("close-window", () => {
-  ipcRenderer.send("close-window", "");
-});

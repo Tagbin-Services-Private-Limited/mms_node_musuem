@@ -1,5 +1,11 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, ipcMain } = require("electron");
+const {
+  app,
+  BrowserWindow,
+  ipcMain,
+  ipcRenderer,
+  screen,
+} = require("electron");
 const path = require("path");
 const os = require("os");
 const fs = require("fs");
@@ -10,7 +16,7 @@ const mac_interface = require("getmac");
 const osInfo = require("@felipebutcher/node-os-info");
 const axios = require("axios");
 const isDev = require("electron-is-dev");
-
+const io = require("socket.io-client"); // Ensure socket.io-client is installed
 const tcp = require("./src/tcp");
 const heartbeat = require("./requests/heatbeat");
 var pjson = require("./package.json");
@@ -38,6 +44,7 @@ let {
   setIpAddress,
   setMacAddress,
   setVolumne,
+  setBackendConfigs,
 } = require("./src/constants");
 
 async function setOldData() {
@@ -53,6 +60,7 @@ electronDl();
 //   await app.whenReady();
 //   win = new BrowserWindow();
 // })();
+setBackendConfigs();
 setIpAddress();
 setMacAddress();
 setVolumne();
@@ -110,11 +118,12 @@ async function createWindow() {
   // Create the browser window.
   let fileToPreload = path.join(__dirname, "src/preload.js");
   // console.log("fileToPreload :>> ", fileToPreload);
+
   mainWindow = new BrowserWindow({
     resizable: false,
     closable: false,
     width: 5760,
-    height: 2160,
+    height: 1080,
     alwaysOnTop: true,
     show: true,
     autoHideMenuBar: false,
@@ -127,6 +136,23 @@ async function createWindow() {
       enableRemoteModule: true,
     },
   });
+  // mainWindow = new BrowserWindow({
+  //   resizable: true,
+  //   closable: false,
+  //   width: 1560,
+  //   height: 860,
+  //   alwaysOnTop: true,
+  //   show: true,
+  //   autoHideMenuBar: false,
+  //   fullscreen: false,
+  //   frame: false, // Remove title bar
+  //   webPreferences: {
+  //     preload: fileToPreload,
+  //     nodeIntegration: true,
+  //     contextIsolation: false,
+  //     enableRemoteModule: true,
+  //   },
+  // });
   // win = mainWindow;
   // mainWindow.setFullScreen(isDev || APP_DATA.watchout ? false : true);
   // mainWindow.setFullScreen(false);
@@ -304,6 +330,7 @@ ipcMain.on("form-data", (event, data) => {
 });
 ipcMain.on("timestamp", (event, arg) => {
   event.reply("main2renderer", "main2renderer");
+  console.log("arg--------------------", event, arg); // prints "ping"
   const message = arg.split("@")[2];
   const ip = arg.split("@")[1];
   const port = arg.split("@")[0];
@@ -811,8 +838,6 @@ if (global.APP_DATA.isResolume) {
 }
 global.RESOLUME_DATA = RESOLUME_DATA;
 
-//////////////////////////
-
 electronLog = {
   electronLogInConsole: function (dataToShow) {
     try {
@@ -828,5 +853,64 @@ electronLog = {
     }
   },
 };
+
+const socket = io("http://192.168.1.105:3005"); // Adjust the server address as needed
+
+socket.on("connect", () => {
+  console.log(
+    "Successfully connected to the Socket.io server+++++++++++++++++++++++++++++++++++++++++"
+  );
+});
+socket.on("open-url", (url) => {
+  createNewWindow(url); // This will now open the URL in a new window
+});
+socket.on("close-window", () => {
+  console.log("Closing new windows...");
+  newWindows.forEach((win) => {
+    if (!win.isDestroyed()) {
+      win.close();
+    }
+  });
+  // Clear the array after closing the windows
+  newWindows = [];
+});
+let newWindows = []; // Array to keep track of new windows
+function createNewWindow(url) {
+  // let newWindow = new BrowserWindow({
+  //   fullscreen: true, // Open the new window in full screen
+  //   alwaysOnTop: true,
+  //   webPreferences: {
+  //     contextIsolation: true,
+  //     nodeIntegration: false,
+  //   },
+  // });
+  // newWindow.loadURL(url);
+  // newWindows.push(newWindow);
+  // newWindow.webContents.on("did-finish-load", () => {
+  //   setTimeout(() => {
+  //     newWindow.webContents.executeJavaScript(`
+  //     // Locate the element using XPath
+  //     const xpath = '//*[@id="yDmH0d"]/c-wiz/div/div/div[24]/div[3]/div/div[2]/div[4]/div/div/div[2]/div[1]/div[2]/div[1]/div[1]/button';
+  //     const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+
+  //     // Check if the element exists before trying to click it
+  //     if (element) {
+  //       // Trigger a click event on the element
+  //       element.click();
+  //     } else {
+  //       console.error('Element not found');
+  //     }
+  //   `);
+  //   }, 5000); // 5000 milliseconds = 5 seconds
+  // });
+
+  // newWindow.on("closed", () => {
+  //   newWindows = newWindows.filter((win) => win !== newWindow);
+  // });
+}
+ipcMain.on("open-url", (event, url) => {
+  console.log("URL received to open:", url);
+  createNewWindow(url); // This will now open the URL in a new window
+});
 
 exports.electronLog = electronLog;
