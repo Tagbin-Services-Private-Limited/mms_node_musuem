@@ -50,6 +50,7 @@ let {
 async function setOldData() {
   await setPastConfigsOnLoad();
   await setData();
+  await setBackendConfigs();
 }
 setOldData();
 const electronDl = require("electron-dl");
@@ -60,7 +61,6 @@ electronDl();
 //   await app.whenReady();
 //   win = new BrowserWindow();
 // })();
-setBackendConfigs();
 setIpAddress();
 setMacAddress();
 setVolumne();
@@ -853,64 +853,73 @@ electronLog = {
     }
   },
 };
-
-const socket = io("http://192.168.1.105:3005"); // Adjust the server address as needed
-
-socket.on("connect", () => {
-  console.log(
-    "Successfully connected to the Socket.io server+++++++++++++++++++++++++++++++++++++++++"
-  );
-});
-socket.on("open-url", (url) => {
-  createNewWindow(url); // This will now open the URL in a new window
-});
-socket.on("close-window", () => {
-  console.log("Closing new windows...");
-  newWindows.forEach((win) => {
-    if (!win.isDestroyed()) {
-      win.close();
+setTimeout(() => {
+  console.log("appdatatatata", global.APP_DATA.SOCKET_CONNECTION_URL);
+  const socket = io(global.APP_DATA.SOCKET_CONNECTION_URL); // Adjust the server address as needed
+  socket.on("connect", () => {
+    console.log(
+      "Successfully connected to the Socket.io server+++++++++++++++++++++++++++++++++++++++++"
+    );
+  });
+  socket.on("open-url", (url) => {
+    if (global.APP_DATA.DISPLAY_SCREEN === "WIDGET_BAR") {
+      createNewWindow(url);
+    } // This will now open the URL in a new window
+  });
+  socket.on("close-window", () => {
+    if (global.APP_DATA.DISPLAY_SCREEN === "WIDGET_BAR") {
+      console.log("Closing new windows...");
+      newWindows.forEach((win) => {
+        if (!win.isDestroyed()) {
+          win.close();
+        }
+      });
+      // Clear the array after closing the windows
+      newWindows = [];
     }
   });
-  // Clear the array after closing the windows
-  newWindows = [];
-});
+}, 2000);
+
 let newWindows = []; // Array to keep track of new windows
+
 function createNewWindow(url) {
-  // let newWindow = new BrowserWindow({
-  //   fullscreen: true, // Open the new window in full screen
-  //   alwaysOnTop: true,
-  //   webPreferences: {
-  //     contextIsolation: true,
-  //     nodeIntegration: false,
-  //   },
-  // });
-  // newWindow.loadURL(url);
-  // newWindows.push(newWindow);
-  // newWindow.webContents.on("did-finish-load", () => {
-  //   setTimeout(() => {
-  //     newWindow.webContents.executeJavaScript(`
-  //     // Locate the element using XPath
-  //     const xpath = '//*[@id="yDmH0d"]/c-wiz/div/div/div[24]/div[3]/div/div[2]/div[4]/div/div/div[2]/div[1]/div[2]/div[1]/div[1]/button';
-  //     const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-
-  //     // Check if the element exists before trying to click it
-  //     if (element) {
-  //       // Trigger a click event on the element
-  //       element.click();
-  //     } else {
-  //       console.error('Element not found');
-  //     }
-  //   `);
-  //   }, 5000); // 5000 milliseconds = 5 seconds
-  // });
-
-  // newWindow.on("closed", () => {
-  //   newWindows = newWindows.filter((win) => win !== newWindow);
-  // });
+  let newWindow = new BrowserWindow({
+    fullscreen: true, // Open the new window in full screen
+    width: 5760, // Set the window width to 500
+    height: 1080, // Set the window height to 500
+    alwaysOnTop: true,
+    webPreferences: {
+      contextIsolation: true,
+      nodeIntegration: false,
+    },
+  });
+  newWindow.loadURL(url);
+  newWindows.push(newWindow);
+  newWindow.webContents.on("did-finish-load", () => {
+    setTimeout(() => {
+      newWindow.webContents.executeJavaScript(`
+      // Locate the element using XPath
+      const xpath = '//*[@id="yDmH0d"]/c-wiz/div/div/div[24]/div[3]/div/div[2]/div[4]/div/div/div[2]/div[1]/div[2]/div[1]/div[1]/button';
+      const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      // Check if the element exists before trying to click it
+      if (element) {
+        // Trigger a click event on the element
+        element.click();
+      } else {
+        console.error('Element not found');
+      }
+    `);
+    }, 5000); // 5000 milliseconds = 5 seconds
+  });
+  newWindow.on("closed", () => {
+    newWindows = newWindows.filter((win) => win !== newWindow);
+  });
 }
 ipcMain.on("open-url", (event, url) => {
-  console.log("URL received to open:", url);
-  createNewWindow(url); // This will now open the URL in a new window
+  if (global.APP_DATA.DISPLAY_SCREEN === "WIDGET_BAR") {
+    console.log("URL received to open:", url);
+    createNewWindow(url); // This will now open the URL in a new window
+  }
 });
 
 exports.electronLog = electronLog;

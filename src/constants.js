@@ -148,7 +148,7 @@ const setBackendConfigs = async () => {
           if (readErr) {
             resolve("Error in reading settings json");
           } else {
-            //
+            data = JSON.parse(data);
             global.APP_DATA.SOCKET_CONNECTION_URL = data.SOCKET_CONNECTION_URL;
             global.APP_DATA.BACKEND_CONNECTION_URL =
               data.BACKEND_CONNECTION_URL;
