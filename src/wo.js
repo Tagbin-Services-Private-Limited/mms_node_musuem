@@ -43,7 +43,7 @@ WOHandler = {
       port
     );
     var client = new net.Socket();
-    client.connect(APP_DATA.wo_dis_tcp_port, "192.168.10.99", function () {
+    client.connect(APP_DATA.wo_dis_tcp_port, "192.168.10.110", function () {
       commandLogId
         ? heartbeat.sendHeartbeat(
             commandLogId,
