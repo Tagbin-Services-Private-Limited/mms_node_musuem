@@ -787,9 +787,10 @@ ipcRenderer.on("webContents2Renderer", (event, message) => {
               )
             : null;
         } catch (e) {
-          //console.log(e);
+          console.log("e2", e);
         }
       } catch (e) {
+        console.log('e :>> ', e);
         try {
           cmdArray[1]
             ? sendHeartbeat(
@@ -799,7 +800,7 @@ ipcRenderer.on("webContents2Renderer", (event, message) => {
               )
             : null;
         } catch (e) {
-          //console.log(e);
+          console.log("e3",e);
         }
       }
       break;

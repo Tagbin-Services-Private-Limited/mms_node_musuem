@@ -13,31 +13,31 @@ function sendHeartbeat(commandLogId, commandStatus, commandMessage) {
       sendToCloudFunction(
         `Data to send in heartbeat from requests/heartbeat: ${commandLogId}, ${commandStatus}, ${commandMessage}`
       );
+      let reqEndpoint =
+        APP_DATA.api_root_protocol +
+        "://" +
+        APP_DATA.api_root +
+        "" +
+        APP_DATA.heartbeat_api_endpoint;
+      let reqBody = {
+        disc_space_usage: APP_DATA.system_vitals.disk_usage,
+        cpu_usage: APP_DATA.system_vitals.cpu_usage,
+        ram_usage: APP_DATA.system_vitals.ram_usage,
+        temparature: APP_DATA.system_vitals.temprature,
+        uptime: APP_DATA.system_vitals.uptime,
+        version: APP_DATA.app_version,
+        command_log_id: commandLogId ? commandLogId : null,
+        command_status: commandStatus ? commandStatus : null,
+        command_message: commandMessage ? commandMessage : null,
+      };
+      let reqHeaders = {
+        headers: {
+          Authorization: `Token ${APP_DATA.auth_token}`,
+        },
+        httpsAgent: new https.Agent({ rejectUnauthorized: false }),
+      };
       axios
-        .post(
-          APP_DATA.api_root_protocol +
-            "://" +
-            APP_DATA.api_root +
-            "" +
-            APP_DATA.heartbeat_api_endpoint,
-          {
-            disc_space_usage: APP_DATA.system_vitals.disk_usage,
-            cpu_usage: APP_DATA.system_vitals.cpu_usage,
-            ram_usage: APP_DATA.system_vitals.ram_usage,
-            temparature: APP_DATA.system_vitals.temprature,
-            uptime: APP_DATA.system_vitals.uptime,
-            version: APP_DATA.app_version,
-            command_log_id: commandLogId ? commandLogId : null,
-            command_status: commandStatus ? commandStatus : null,
-            command_message: commandMessage ? commandMessage : null,
-          },
-          {
-            headers: {
-              Authorization: `Token ${APP_DATA.auth_token}`,
-            },
-            httpsAgent: new https.Agent({ rejectUnauthorized: false }),
-          }
-        )
+        .post(reqEndpoint, reqBody, reqHeaders)
         .then(function (response) {
           // console.log(response);
           APP_DATA.heartbeat_response = response.data;
@@ -47,6 +47,14 @@ function sendHeartbeat(commandLogId, commandStatus, commandMessage) {
             type: "DATA",
             data: response.data,
           });
+          sendToCloudFunction(
+            `${JSON.stringify(reqEndpoint)}--------
+            ${JSON.stringify(reqBody)}----------${JSON.stringify(
+              reqHeaders
+            )}--------successfully request sent for heartbeat -- ${
+              response.data
+            } ---${JSON.stringify(response.data)}`
+          );
         })
         .catch(function (error) {
           sendToCloudFunction(`error Heartbeat 52 ${JSON.stringify(error)}`);

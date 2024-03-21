@@ -112,13 +112,13 @@ async function createWindow() {
   mainWindow = new BrowserWindow({
     resizable: true,
     closable: false,
-    width: 1980,
-    height: 1080,
+    width: 1080,
+    height: 880,
     alwaysOnTop: true,
     show: true,
     autoHideMenuBar: false,
-    // fullscreen: true,
-    // frame: false, // Remove title bar
+    fullscreen: true,
+    frame: false, // Remove title bar
     webPreferences: {
       preload: fileToPreload,
       nodeIntegration: true,
@@ -506,7 +506,7 @@ function startRegistration() {
           );
           mainWindow.webContents.send(
             "webContents2Renderer",
-            "Sending data of Resolume to 192.168.0.180"
+            "Sending data of Resolume to 192.168.10.71"
           );
           mainWindow.webContents.send(
             "webContents2Renderer",
@@ -673,7 +673,7 @@ let RESOLUME_DATA = {
 ///////////////////
 global.RESOLUME_DATA = RESOLUME_DATA;
 if (global.APP_DATA.isResolume) {
-  const ws = new WebSocket("ws://192.168.0.190:8080/api/v1");
+  const ws = new WebSocket("ws://127.0.0.1:8080/api/v1");
   let isDOne = false;
   global.websocket = ws;
   ws.on("open", function open() {

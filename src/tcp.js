@@ -132,7 +132,10 @@ let TCPHandler = {
               const dataArr = data.toString().split(" ");
               console.log("dataArr :>> ", dataArr);
               sendToCloudFunction(`data line 128 ${JSON.stringify(dataArr)}`);
-              const command = dataArr[0];
+              let command = dataArr[0];
+              if(data.includes("timestamp")){
+                command = "timestamp"
+              }
               if (global.APP_DATA.shutdown_2626 == false) {
                 console.log("143");
                 if (command == "timestamp") {

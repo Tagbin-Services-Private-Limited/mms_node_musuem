@@ -52,6 +52,7 @@ async function sendToApp(command, commandLogId, commandFiles, mode, ip, port) {
     }.`,
     "ACKNOWLEDGED"
   );
+  console.log('command :>> ', command);
   if (video_commands.includes(command)) {
     APP_DATA.watchout
       ? wo.WOHandler.startWoConnect(command, commandLogId, ip, port)
@@ -205,9 +206,16 @@ async function sendToApp(command, commandLogId, commandFiles, mode, ip, port) {
   } else if (command.startsWith("TEST")) {
     sendToRenderer(command + " " + commandLogId + " " + commandFiles);
   }
-  if (command.startsWith("timestamp")) {
-    console.log('APP_DATA.watchout && command == "timestamp" :>> ', APP_DATA.watchout && command == "timestamp");
-    if (APP_DATA.watchout && command == "timestamp") {
+  console.log('command ==============================================================:>> ', command);
+  if (command.startsWith("timestamp") || command.includes("timestamp")) {
+    console.log(
+      'APP_DATA.watchout && command == "timestamp" :>> ',
+      APP_DATA.watchout && command == "timestamp"
+    );
+    if (
+      APP_DATA.watchout &&
+      (command == "timestamp" || command.includes("timestamp"))
+    ) {
       wo.WOHandler.startWoConnect(command, commandLogId, ip, port);
     } else {
       sendToRenderer(command + " " + commandLogId + " " + commandFiles);
