@@ -127,7 +127,7 @@ async function createWindow() {
     alwaysOnTop: true,
     show: true,
     autoHideMenuBar: false,
-    fullscreen: true,
+    fullscreen: false,
     frame: false, // Remove title bar
     webPreferences: {
       // preload: fileToPreload,
